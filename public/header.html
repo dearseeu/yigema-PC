@@ -1,0 +1,583 @@
+<header id="header" class="container">
+    <!--头部第一行-->
+    <div class="row justify-content-between">
+        <!--左边:登录注册-->
+        <div>
+            <span class="my_font_small">欢迎光临本店!</span>
+            <a href="login.html" class="my_font_small my_red_color" id="welcome">请登录</a>
+            <a href="#" class="my_font_small my_red_color" id="wxLogin">微信扫码登录</a>
+            <a href="register.html" class="my_font_small">免费注册</a>
+        </div>
+        <!--右边:信息,购物车等-->
+        <div>
+            <a href="#" class="my_font_small">我的信息</a>
+            <a href="#" class="my_font_small my_red_color">我关注的店铺</a>
+            <a href="#" class="my_font_small my_red_color">购物车</a>
+            <a href="#" class="my_font_small">收藏夹</a>
+            <a href="#" class="my_font_small">手机版</a>
+            <a href="#" class="my_font_small">商家支持</a>
+        </div>
+    </div>
+    <!--头部第二行-->
+    <div class="row mt-2 align-items-center justify-content-between">
+        <!--左边图片-->
+        <div>
+            <img src="img/logo.gif" alt="">
+            <img src="img/logo_right.gif" alt="">
+        </div>
+        <!--中间搜索框-->
+        <div class="d-flex">
+            <input type="text" class="form-control my_font_small rounded-0 border-danger my_input" placeholder="请键入关键词" style="width:300px">
+            <a href="#" id="search" class="btn btn-danger my_font_small rounded-0">搜索</a>
+        </div>
+        <!--右边三张图片-->
+        <div class="header_second">
+            <img src="img/guarantee.jpg" alt="">
+            <img src="img/delivery.jpg" alt="">
+            <img src="img/7day.jpg" alt="">
+        </div>
+    </div>
+    <!--头部第三行:导航-->
+    <div class="row mt-3">
+        <ul class="nav">
+            <li class="nav_brand base_font ">
+                全部商品分类
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link active">首页</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">新品</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">团购</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">预售</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">积分商城</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">热门品牌</a>
+            </li>
+        </ul>
+    </div>
+    <!--头部第四行:选择列表-->
+    <div class="row header_list">
+        <!--标题栏-->
+        <ul class="list-unstyled">
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">妈妈专区 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">母乳储存保鲜 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">防溢乳垫</a>
+                        <a href="#" class="base_font">吸奶器</a>
+                        <a href="#" class="base_font">孕妇枕/哺乳枕</a>
+                        <a href="#" class="base_font">护垫卫生巾</a>
+                        <a href="#" class="base_font">牙刷/牙膏</a>
+                        <a href="#" class="base_font">托腹带/保胎带</a>
+                        <a href="#" class="base_font">乳房护理</a>
+                        <a href="#" class="base_font">骨盆矫正带</a>
+                        <a href="#" class="base_font">束腹带</a>
+                        <a href="#" class="base_font">其他产褥垫</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">孕产妇内衣鞋帽 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">哺乳吊带</a>
+                        <a href="#" class="base_font">哺乳文胸</a>
+                        <a href="#" class="base_font">塑身裤</a>
+                        <a href="#" class="base_font">普通孕产妇文胸</a>
+                        <a href="#" class="base_font">生理裤/产检裤</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">孕妇服装 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">孕妇裤/托腹裤</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">奶粉辅食 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">婴儿奶粉 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">Pre段</a>
+                        <a href="#" class="base_font">1段</a>
+                        <a href="#" class="base_font">2段</a>
+                        <a href="#" class="base_font">3段</a>
+                        <a href="#" class="base_font">4段</a>
+                        <a href="#" class="base_font">5段</a>
+                        <a href="#" class="base_font">6段</a>
+                        <a href="#" class="base_font">成长1+</a>
+                        <a href="#" class="base_font">成长2+</a>
+                        <a href="#" class="base_font">牛奶粉</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">成人奶粉 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">学生奶粉</a>
+                        <a href="#" class="base_font">孕妇奶粉</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">婴幼儿零食 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">酸奶/发酵乳</a>
+                        <a href="#" class="base_font">磨牙棒/饼干</a>
+                        <a href="#" class="base_font">糖果果肉/蜜饯</a>
+                        <a href="#" class="base_font">泡芙</a>
+                        <a href="#" class="base_font">蛋卷</a>
+                        <a href="#" class="base_font">膨化食品</a>
+                        <a href="#" class="base_font">海苔</a>
+                        <a href="#" class="base_font">巧克力</a>
+                        <a href="#" class="base_font">溶溶豆</a>
+                        <a href="#" class="base_font">奶片</a>
+                        <a href="#" class="base_font">奶酪/奶条</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">婴幼儿调味品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">食用油调料</a>
+                        <a href="#" class="base_font">调料</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">婴幼儿辅食 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">果/菜/肉/混合泥</a>
+                        <a href="#" class="base_font">面条</a>
+                        <a href="#" class="base_font">米粉/米糊/汤粥</a>
+                        <a href="#" class="base_font">麦片</a>
+                        <a href="#" class="base_font">果汁/饮品</a>
+                        <a href="#" class="base_font">菜粉/水果粉</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">婴幼儿营养品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">蜂蜜</a>
+                        <a href="#" class="base_font">维生素</a>
+                        <a href="#" class="base_font">益生菌</a>
+                        <a href="#" class="base_font">清凉/调理/奶伴</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">烘焙原料 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">冰淇淋粉</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">尿裤湿巾 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">湿巾 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">洁肤湿巾</a>
+                        <a href="#" class="base_font">屁屁湿巾</a>
+                        <a href="#" class="base_font">手口湿巾</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">纸尿裤 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">新生儿（NB）</a>
+                        <a href="#" class="base_font">小号（S）</a>
+                        <a href="#" class="base_font">中号（M）</a>
+                        <a href="#" class="base_font">大号（L）</a>
+                        <a href="#" class="base_font">加大号（XL）</a>
+                        <a href="#" class="base_font">特大号（XXL）</a>
+                        <a href="#" class="base_font"> 拉拉裤纸尿片</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">尿裤湿巾 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">拉拉裤</a>
+                        <a href="#" class="base_font">纸尿裤</a>
+                        <a href="#" class="base_font">湿巾</a>
+                        <a href="#" class="base_font">布尿裤</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">车床寝具 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">童车童床 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">扭扭车</a>
+                        <a href="#" class="base_font">滑板车</a>
+                        <a href="#" class="base_font">三轮车</a>
+                        <a href="#" class="base_font">婴儿推车</a>
+                        <a href="#" class="base_font">学步车</a>
+                        <a href="#" class="base_font">婴儿床</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">配件 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">推车清凉垫/防滑垫</a>
+                        <a href="#" class="base_font">安全座椅配件</a>
+                        <a href="#" class="base_font">推车配件</a>
+                        <a href="#" class="base_font">车铃/喇叭</a>
+                        <a href="#" class="base_font">童床/餐椅配件</a>
+                        <a href="#" class="base_font"></a>
+                        <a href="#" class="base_font"></a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">汽车座椅 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">安全座椅</a>
+                        <a href="#" class="base_font">增高垫</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">推车 ></dt>
+                    <dd>
+                        <a href="#" class="base_font"> 四轮推车</a>
+                        <a href="#" class="base_font">学步车</a>
+                        <a href="#" class="base_font">双胞胎推车</a>
+                        <a href="#" class="base_font">提篮</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">童床/餐椅 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">餐椅</a>
+                        <a href="#" class="base_font">婴儿床/儿童床</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">母婴用品 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">水杯/餐具/附件 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">口水巾/围兜</a>
+                        <a href="#" class="base_font">餐具套装</a>
+                        <a href="#" class="base_font">果汁杯/饮料</a>
+                        <a href="#" class="base_font">碗/餐盘/餐盒</a>
+                        <a href="#" class="base_font">餐垫</a>
+                        <a href="#" class="base_font">筷子/勺子/叉</a>
+                        <a href="#" class="base_font">保温瓶/保温食盒</a>
+                        <a href="#" class="base_font">水杯餐具配件</a>
+                        <a href="#" class="base_font">吸管杯/学饮杯</a>
+                        <a href="#" class="base_font">奶粉盒/零食盒</a>
+                        <a href="#" class="base_font">水杯/水壶</a>
+                        <a href="#" class="base_font">吸管/吸管刷</a>
+                        <a href="#" class="base_font">食物研磨器</a>
+                        <a href="#" class="base_font">吸汗巾/垫背巾</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">驱蚊退烧 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">驱蚊手带</a>
+                        <a href="#" class="base_font">驱蚊片</a>
+                        <a href="#" class="base_font">驱蚊止痒膏</a>
+                        <a href="#" class="base_font">防蚊水/金水</a>
+                        <a href="#" class="base_font">退烧贴</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">喂养用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">辅食工具</a>
+                        <a href="#" class="base_font">奶瓶刷/奶嘴刷</a>
+                        <a href="#" class="base_font">安抚奶嘴</a>
+                        <a href="#" class="base_font">奶嘴</a>
+                        <a href="#" class="base_font">安抚奶嘴链/夹</a>
+                        <a href="#" class="base_font">奶瓶</a>
+                        <a href="#" class="base_font">保温包袋</a>
+                        <a href="#" class="base_font">辅助配件</a>
+                        <a href="#" class="base_font">喂养礼盒装</a>
+                        <a href="#" class="base_font">奶瓶储存盒</a>
+                        <a href="#" class="base_font">奶嘴链/夹</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">牙胶/牙刷/牙膏 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">牙胶/磨牙棒</a>
+                        <a href="#" class="base_font">牙膏/护牙素</a>
+                        <a href="#" class="base_font">食物咬咬袋</a>
+                        <a href="#" class="base_font">牙刷</a>
+                        <a href="#" class="base_font">漱口水</a>
+                        <a href="#" class="base_font">电动牙刷</a>
+                        <a href="#" class="base_font">牙膏牙刷套装</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">日常用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">坐便器/坐便圈</a>
+                        <a href="#" class="base_font">宝宝指甲剪/钳</a>
+                        <a href="#" class="base_font">理发器/理发围兜</a>
+                        <a href="#" class="base_font">安全梳子/刷子</a>
+                        <a href="#" class="base_font">棉棒/棉签/棉片</a>
+                        <a href="#" class="base_font">妈咪包/袋</a>
+                        <a href="#" class="base_font">吸鼻器/喂药器</a>
+                        <a href="#" class="base_font">隔尿垫</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">清洁洗涤 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">奶瓶果蔬清洗液/洗碗液</a>
+                        <a href="#" class="base_font">清洁消毒</a>
+                        <a href="#" class="base_font">去渍护色</a>
+                        <a href="#" class="base_font">婴儿洗衣液</a>
+                        <a href="#" class="base_font">洗衣皂</a>
+                        <a href="#" class="base_font">柔顺剂/柔软剂</a>
+                        <a href="#" class="base_font">妈咪专用洗衣液洗衣粉</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">安全防护 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">泳镜</a>
+                        <a href="#" class="base_font">急救用品</a>
+                        <a href="#" class="base_font">救生衣</a>
+                        <a href="#" class="base_font">安全别针/门卡</a>
+                        <a href="#" class="base_font">防触电保护</a>
+                        <a href="#" class="base_font">其他防盗产品</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">浴室用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">洗漱杯</a>
+                        <a href="#" class="base_font">沐浴棉/浴擦</a>
+                        <a href="#" class="base_font">脸盆</a>
+                        <a href="#" class="base_font">浴巾/毛巾</a>
+                        <a href="#" class="base_font">防滑凳</a>
+                        <a href="#" class="base_font">洗头杯/水勺</a>
+                        <a href="#" class="base_font">浴盆/浴桶</a>
+                        <a href="#" class="base_font">水龙头延长槽</a>
+                        <a href="#" class="base_font">浴网/浴兜/浴架</a>
+                        <a href="#" class="base_font">浴帽/洗发帽</a>
+                        <a href="#" class="base_font"> 水温计</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">婴童睡袋/床品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">包巾</a>
+                        <a href="#" class="base_font">睡袋</a>
+                        <a href="#" class="base_font">婴童抱被/盖毯</a>
+                        <a href="#" class="base_font">婴童枕头/枕芯</a>
+                        <a href="#" class="base_font">婴童被子</a>
+                        <a href="#" class="base_font">婴童床品套件</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">小家电 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">调奶器</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">婴童玩具 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">早教玩具></dt>
+                    <dd>
+                        <a href="#" class="base_font">贴纸智能公仔/娃娃</a>
+                        <a href="#" class="base_font">玩具挂图/认知卡</a>
+                        <a href="#" class="base_font">儿歌/故事书</a>
+                        <a href="#" class="base_font">儿童MP3/故事机</a>
+                        <a href="#" class="base_font">早教教具/早教套装</a>
+                        <a href="#" class="base_font">早教机/点读学习</a>
+                        <a href="#" class="base_font">育儿书籍</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">文具用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">文具套装</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">绘画类用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">画布/画板/画架</a>
+                        <a href="#" class="base_font">涂鸦册</a>
+                        <a href="#" class="base_font">蜡笔</a>
+                        <a href="#" class="base_font">画笔/画刷</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">响铃/布玩/安抚玩具 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">毛绒布玩具</a>
+                        <a href="#" class="base_font">摇铃</a>
+                        <a href="#" class="base_font">手偶/安抚玩偶</a>
+                        <a href="#" class="base_font">床铃/床挂</a>
+                        <a href="#" class="base_font">布书</a>
+                        <a href="#" class="base_font">不倒翁</a>
+                        <a href="#" class="base_font">牙胶玩具</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">彩泥/粘土/软陶泥 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">彩泥/橡皮泥</a>
+                        <a href="#" class="base_font">粘土/超轻粘土</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">电动/遥控/发条玩具 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">惯性/回力/滑行玩具</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">户外休闲/传统玩具 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">球类玩具投掷套圈</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">户外用品 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">背包/背包/箱包 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">手机袋</a>
+                        <a href="#" class="base_font">双肩包</a>
+                        <a href="#" class="base_font">斜挎包/拎包/腰包</a>
+                        <a href="#" class="base_font">拉杆箱</a>
+                        <a href="#" class="base_font">野餐包/午餐包</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">出行用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">太阳镜</a>
+                        <a href="#" class="base_font">雨衣雨鞋</a>
+                        <a href="#" class="base_font">太阳帽</a>
+                        <a href="#" class="base_font">雨伞雨裤防雨罩</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">背带/学步带 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">防走失带</a>
+                        <a href="#" class="base_font">抱婴腰凳</a>
+                        <a href="#" class="base_font">背架</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">户外/登山/野营/旅行用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">防潮垫/地席/枕头</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">帐篷/天幕/帐篷配件 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">露营/旅游/登山帐篷</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">孕婴洗护 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">宝宝洗浴护肤 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">爽身粉/痱子粉</a>
+                        <a href="#" class="base_font">沐浴乳/沐浴露</a>
+                        <a href="#" class="base_font">润肤乳/润肤露</a>
+                        <a href="#" class="base_font">鼻眼清洗液</a>
+                        <a href="#" class="base_font">洗手液</a>
+                        <a href="#" class="base_font">洗发水/洗发露</a>
+                        <a href="#" class="base_font">面霜</a>
+                        <a href="#" class="base_font">润肤油/按摩油</a>
+                        <a href="#" class="base_font">沐浴皂/香皂</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">孕产妇洗浴护肤 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">洁面乳/洁面皂</a>
+                        <a href="#" class="base_font">唇部护理</a>
+                        <a href="#" class="base_font">私处洗液</a>
+                        <a href="#" class="base_font">按摩油</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">清洁洗涤 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">奶瓶果蔬清洗液/洗碗液</a>
+                        <a href="#" class="base_font">清洁消毒</a>
+                        <a href="#" class="base_font">去渍护色</a>
+                        <a href="#" class="base_font">婴儿洗衣液</a>
+                        <a href="#" class="base_font">洗衣皂</a>
+                        <a href="#" class="base_font">柔顺剂/柔软剂</a>
+                        <a href="#" class="base_font">妈咪专用洗衣液洗衣粉</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">清洁洗涤 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">奶瓶果蔬清洗液/洗碗液</a>
+                        <a href="#" class="base_font">清洁消毒</a>
+                        <a href="#" class="base_font">去渍护色</a>
+                        <a href="#" class="base_font">婴儿洗衣液</a>
+                        <a href="#" class="base_font">洗衣皂</a>
+                        <a href="#" class="base_font">柔顺剂/柔软剂</a>
+                        <a href="#" class="base_font">妈咪专用洗衣液洗衣粉</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">浴室用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">洗漱杯</a>
+                        <a href="#" class="base_font">沐浴棉/浴擦</a>
+                        <a href="#" class="base_font">脸盆</a>
+                        <a href="#" class="base_font">浴巾/毛巾</a>
+                        <a href="#" class="base_font">防滑凳</a>
+                        <a href="#" class="base_font">洗头杯/水勺</a>
+                        <a href="#" class="base_font">浴盆/浴桶</a>
+                        <a href="#" class="base_font">水龙头延长槽</a>
+                        <a href="#" class="base_font">浴网/浴兜/浴架</a>
+                        <a href="#" class="base_font">浴帽/洗发帽</a>
+                        <a href="#" class="base_font"> 水温计</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">浴室用品 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">洗漱杯</a>
+                        <a href="#" class="base_font">沐浴棉/浴擦</a>
+                        <a href="#" class="base_font">脸盆</a>
+                        <a href="#" class="base_font">浴巾/毛巾</a>
+                        <a href="#" class="base_font">防滑凳</a>
+                        <a href="#" class="base_font">洗头杯/水勺</a>
+                        <a href="#" class="base_font">浴盆/浴桶</a>
+                        <a href="#" class="base_font">水龙头延长槽</a>
+                        <a href="#" class="base_font">浴网/浴兜/浴架</a>
+                        <a href="#" class="base_font">浴帽/洗发帽</a>
+                        <a href="#" class="base_font"> 水温计</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">时尚家居 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">DIY制作></dt>
+                    <dd>
+                        <a href="#" class="base_font">模具</a>
+                        <a href="#" class="base_font">冰淇淋机雪糕机</a>
+                        <a href="#" class="base_font">冰沙杯/奶昔杯</a>
+                        <a href="#" class="base_font">辅助工具</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">成人水杯/水壶></dt>
+                    <dd>
+                        <a href="#" class="base_font">杯垫/杯套</a>
+                        <a href="#" class="base_font">保温杯/保温壶</a>
+                        <a href="#" class="base_font">咖啡杯玻璃水杯</a>
+                        <a href="#" class="base_font">随手杯水杯</a>
+                        <a href="#" class="base_font">水壶配件</a>
+                        <a href="#" class="base_font">马克杯/陶瓷杯/杯盖</a>
+                        <a href="#" class="base_font">多功能水杯</a>
+                        <a href="#" class="base_font">饮料瓶/果汁杯</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">健康护理用品></dt>
+                    <dd>
+                        <a href="#" class="base_font">体温计/体温枪监护器/看护仪</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">厨房用具></dt>
+                    <dd>
+                        <a href="#" class="base_font">餐盒/餐盘碗/碟冰格/冰包</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">收纳整理></dt>
+                    <dd>
+                        <a href="#" class="base_font">收纳袋收纳盒</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">保鲜容器></dt>
+                    <dd>
+                        <a href="#" class="base_font">保鲜袋保鲜盒</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">家居饰品></dt>
+                    <dd>
+                        <a href="#" class="base_font">墙贴冰箱贴</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <a href="#" class="btn rounded-0" data-toggle="items">服装鞋帽 ></a>
+                <dl class="my_bread list-unstyled">
+                    <dt class="base_font font-weight-bold">泳装 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">泳衣裤</a>
+                        <a href="#" class="base_font">泳帽</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">儿童配饰 ></dt>
+                    <dd>
+                        <a href="#" class="base_font"> 帽子口罩/耳罩项链/手脚链</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">儿童户外服 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">儿童皮肤衣/防晒衣</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">婴童鞋类 ></dt>
+                    <dd>
+                        <a href="#" class="base_font"> 学步鞋/步前鞋</a>
+                        <a href="#" class="base_font">凉鞋</a>
+                        <a href="#" class="base_font">休闲鞋/运动鞋</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">婴儿礼盒 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">五件套礼盒</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">儿童家居服 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">家居袍/睡袍</a>
+                    </dd>
+                    <dt class="base_font font-weight-bold">套装 ></dt>
+                    <dd>
+                        <a href="#" class="base_font">套装</a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+        <!--详细选择栏-->
+    </div>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+
+    </script>
+</header>

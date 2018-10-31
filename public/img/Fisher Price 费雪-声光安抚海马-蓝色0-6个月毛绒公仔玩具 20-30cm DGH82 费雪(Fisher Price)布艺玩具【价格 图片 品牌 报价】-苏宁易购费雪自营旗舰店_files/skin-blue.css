@@ -1,0 +1,17 @@
+@charset "utf-8";
+.sf-navbar{ background: #407fce;}
+.sf-allcate{ background: #407fce;}
+.sf-allcate dd ul{ background: #407fce;}
+.sf-navlist{ border-left: 1px solid #3771b9;}
+.sf-allcate dd ul li{ border-top: 1px solid #3771b9;}
+.sf-allcate dd ul a{ color: #fff; background: #407fce;}
+.sf-allcate dd ul a:hover,.sf-allcate dd ul a.sf-sel{ background-color: #3771b9;}
+.sf-allcate li.sf-moreList{ background: #3771b9;}
+.sf-allcate li.sf-moreList a{ background: #3771b9; border-bottom: 1px solid #3771b9;}
+.sf-allcate li.sf-moreList a:hover{ background: #235ea8;}
+
+.sf-module h5.h5{ background: #407fce;}
+
+.sf-floorRight li>a.sf-1{ background-position: left -557px;}
+.sf-floorRight li>a.sf-2{ background-position: left -592px;}
+.sf-floorRight li>a.sf-3{ background-position: left -627px;}

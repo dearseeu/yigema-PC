@@ -1,0 +1,153 @@
+/**
+ * Created with WebStorm.
+ * User: 14091150
+ * Date: 14-11-3
+ * Time: 下午2:28
+ * To change this template use File | Settings | File Templates.
+ */
+
+/*sf-popWin*/
+	/* sf-popWin mask */
+.sf-popWinMask{ width: 100%; height: 100%; position: absolute; top:0; left: 0; background: #000; opacity: 0.3; filter: alpha(opacity=30);}
+iframe.sf-popWinFrame{ position: absolute; top:0; left: 0; background: transparent; z-index: 9; filter: alpha(opacity=0); opacity: 0; width: 100%;}
+	/* sf-popWin box */
+.sf-popWin{ position: fixed; _position: absolute; left: 50%; top: 50%; margin: -63px 0 0 -186px; padding: 0px; box-shadow: 0px 0px 12px #777777; overflow: hidden;}
+.sf-popWinBg{ position: absolute; left: 0; top: 0; width: 9999px; height: 9999px; background: #000; opacity: .2; filter: alpha(opacity=20); z-index: -1;}
+.sf-popWinTitle{ padding: 0 0 0 15px; height: 40px; line-height: 40px; background: #f8f8f8; border-bottom: 1px solid #ccc; font-size: 14px; font-weight: 700; color: #666;/* *position: absolute; *left: 6px; *right: 6px; *z-index: 1; _width: 100%; _padding: 0; _text-indent: 1em;*/}
+a.sf-popWinClose,a.sf-popWinClose:active{ background: transparent; position: absolute; top: 10px; right: 10px; z-index: 2; display: block; width: 20px; height: 20px; text-indent:-9999em; overflow:hidden;background:url(images/popWin/bg_popclose.png) no-repeat 4px 0;}
+a.sf-popWinClose:hover{ background-position:-25px 0;}
+.sf-popWinMain{ padding: 15px 15px; /**padding: 65px 15px 30px;*/ background: #fff;}
+.sf-popWinLoading{ text-align: center;}
+.sf-popWinLoading i{ background: url("images/popWin/popWinload.gif") no-repeat center center; display: inline-block; width: 16px; height: 16px; vertical-align: middle; margin: 0 10px 0 0;}
+	/* sf-popWin btns*/
+.sf-popWinBtns{ background: #fff; text-align: center; padding: 10px 15px 30px;}
+.sf-popWinBtns a{ display: inline-block; margin: 0 6px; padding: .3em 2em; color: #333; text-decoration: none; border-radius: 1px; font-size: 14px; -moz-border-radius:2px; -webkit-border-radius:2px; -o-border-radius:2px;}
+.sf-popWinBtns a:hover{ text-decoration: none;}
+.sf-popWinBtnYes{ border: 1px solid #ec8001; background: #ec8001; background: linear-gradient(to top, #f88700, #fe9900);}
+.sf-popWinBtnYes:hover{ border: 1px solid #fe9900; background: #fe9900; background: linear-gradient(to top, #fe9900, #ffa800);}
+.sf-popWinBtnNo{ border: 1px solid #ccc; background: #ffffff;color:#666666;}
+.sf-popWinBtnNo:hover{ border: 1px solid #bbbbbb; color:#333; background-color:#; }
+.sf-popWinBtns-left{ text-align: left;}
+.sf-popWinBtns-right{ text-align: right;}
+
+/* sf-popWin theme(example) */
+.sf-mask_z{ /* background: #000; */ }
+.z .sf-popWinBg{ /* background: #000; */ }
+.z .sf-popWinTitle{ /* background: #eee; border-bottom: 1px solid #ccc; color: #333; */ }
+.z .sf-popWinMain{ /* background: #fff; */ }
+.z a.sf-popWinClose,.z a.sf-popWinClose:active{ /* color: #666; */ }
+.z a.sf-popWinClose:hover{ /* color: #666; */ }
+.z .sf-popWinBtns{ /* background: #fff; border-top: 1px solid #e7e7e7; */ }
+.z .sf-popWinBtns a{ /* color: #333; box-shadow: 0 1px 1px #ddd; font-size: 12px; */  -moz-border-radius:2px; -webkit-border-radius:2px; -o-border-radius:2px;}
+.z .sf-popWinBtnYes{ /* border: 1px solid #ec8001; background: #ec8001; background: linear-gradient(to top, #f88700, #fe9900); */}
+.z .sf-popWinBtnYes:hover{ /* border: 1px solid #fe9900; background: #fe9900; background: linear-gradient(to top, #fe9900, #ffa800); */}
+.z .sf-popWinBtnNo{ /* border: 1px solid #ccc; background: #ccc; background: linear-gradient(to top, #eee, #fafafa); */}
+.z .sf-popWinBtnNo:hover{ /* border: 1px solid #ccc; background: #fff; background: linear-gradient(to top, #f4f4f4, #fff); */}
+
+/* sf-popWin theme(b) */
+.sf-mask_b{  background: #9cf; }
+.b .sf-popWinBg{ background: #66f; }
+.b .sf-popWinTitle{background: #f8f8f8; border-bottom: 1px solid #e0e0e0; color: #666666; }
+.b .sf-popWinMain{background: #fff;}
+.b a.sf-popWinClose,.b a.sf-popWinClose:active{ color: #fff;}
+.b a.sf-popWinClose:hover{ color: #99f; }
+.b .sf-popWinBtns{padding-left:15px; background: #fff;}
+.b .sf-popWinBtns a{padding:0; margin:0 10px 0 0; width:90px; line-height:30px; border:1px solid #0185e2; background-color:#0185e2; text-align: center; height:30px; line-height:30px; color: #fff; font-size: 14px;  -moz-border-radius:2px; -webkit-border-radius:2px; -o-border-radius:2px;}
+.b .sf-popWinBtnYes{ border: 1px solid #0185e2; background: #0185e2!important; -moz-border-radius:2px; -webkit-border-radius:2px; -o-border-radius:2px; }
+.b .sf-popWinBtnYes:hover{ border: 1px solid #028ef0; background: #028ef0!important;}
+.b .sf-popWinBtns a.sf-popWinBtnNo{ border: 1px solid #ccc; background: #fff!important; color:#666;}
+.b .sf-popWinBtnNo:hover{ border: 1px solid #bbb!important; background: #ffffff!important; color:#333;}
+
+/* sf-popWin theme(c) */
+.sf-mask_c{ background: #c00; }
+.c .sf-popWinBg{ background: #c00; }
+.c .sf-popWinTitle{ background: #c00; border-bottom: 1px solid #600; color: #fff; }
+.c .sf-popWinMain{ background: #fee; }
+.c a.sf-popWinClose,.c a.sf-popWinClose:active{ color: #fff; }
+.c a.sf-popWinClose:hover{ color: #fcc; }
+.c .sf-popWinBtns{  background: #fee; border-top: 1px solid #fdd; }
+.c .sf-popWinBtns a{ box-shadow: 0 1px 1px #ddd; font-size: 12px;  -moz-border-radius:2px; -webkit-border-radius:2px; -o-border-radius:2px;}
+.c .sf-popWinBtnYes{ border: 1px solid #900; color: #fff; background: #c00; background: linear-gradient(to top, #c00, #f33);}
+.c .sf-popWinBtnYes:hover{ border: 1px solid #900; color: #fff; background: #c00; background: linear-gradient(to top, #f33, #c00); }
+.c .sf-popWinBtnNo{ border: 1px solid #fcc; color: #c00; background: #c66; background: linear-gradient(to top, #fcc, #fff); }
+.c .sf-popWinBtnNo:hover{ border: 1px solid #fcc; color: #c00; background: #fcc; background: linear-gradient(to top, #fff, #fcc); }
+
+
+
+/*custom style*/
+.sf-popWinBtnYes{ background: #fd9903 !important; color: #fff !important;}
+.sf-popWinBtnYes:hover{ background: #ffa51d !important;}
+.sf-popWinBtnNo{ color: #666 !important;}
+.sf-popWinBtnNo:hover{ color: #333 !important;}
+.sf-popWinTips{margin:20px 0 5px; font-size: 16px; font-weight: bold; text-align: center; color: #666;}
+.sf-popWinTips i{ display: inline-block; width: 32px; height: 32px; background: url("images/tipsBg.png") no-repeat -120px -140px; margin: 0 10px 0 0; vertical-align: middle;}
+.sf-popLayout{ position: relative; height: 230px;}
+.sf-popLayout p{ color: #666;}
+.sf-popLayout li{ position: absolute; width: 195px; height: 40px; padding: 5px; border: 2px solid #e0e0e0; background: url("images/layout.gif") no-repeat; cursor: pointer;}
+.sf-popLayout li:hover,.sf-popLayout li.sf-sel{ border: 2px solid #fc9a01;}
+.sf-popLayout li.sf-lay990{ background-position: 5px -55px; left: 0; top: 35px;}
+.sf-popLayout li.sf-lay190-790{ background-position: 5px -114px; left: 0; top: 100px;}
+.sf-popLayout li.sf-lay790-190{ background-position: 5px -174px; left: 220px; top: 100px;}
+.sf-popLayout li.sf-lay190-590-190{ background-position: 5px -233px; left: 0; top: 165px;}
+.sf-popLayout li.sf-lay190-190-590{ background-position: 5px -293px; left: 220px; top: 165px;}
+.sf-popLayout li.sf-lay590-190-190{ background-position: 5px 5px; left: 440px; top: 165px;}
+
+.sf-popModule li{ background: url("images/module.gif") no-repeat left top; border-bottom: 1px dashed #ddd; padding: 0 0 20px 75px; height: 60px; margin: 0 0 10px;}
+.sf-popModule li.scrollPicModule{}
+.sf-popModule li.productModule{ background-position: 0 -85px;}
+.sf-popModule li.searchModule{ background-position: 0 -175px;}
+.sf-popModule li.customModule{ background-position: 0 -265px;}
+.sf-popModule li.storeModule{ background-position: 0 -355px;}
+.sf-popModule li.hotRankModule{ background-position: 0 -445px;}
+.sf-popModule li.shopCateModule{ background-position: 0 -535px;}
+.sf-popModule a{ float: right; display: block; width: 60px; height: 30px; line-height: 30px; text-align: center; color: #fff; background: #0185e2; text-decoration: none; border-radius: 1px; margin: 20px 0 0 0;-moz-border-radius:2px;-webkit-border-radius:2px;-o-border-radius:2px;border-radius:2px;}
+.sf-popModule a:hover{ background: #028ef0;}
+.sf-popModule h1{ font-size: 14px; color: #666;}
+.sf-popModule p{ font-size: 14px; color: #999; width: 370px;}
+.sf-popModule li.defineModule{ background: none; padding: 0 0 20px;}
+.sf-popModule li.defineModule img{ width: 60px; height: 60px; float: left; margin: 0 20px 0 0;}
+.sf-popModule li.defineModule p,.sf-popModule li.defineModule h1{ margin: 0 0 0 80px;}
+
+
+
+/*focus*/
+.focusBox{ background: #fff;}
+.focusImages{ position: relative; z-index: 1; width: 100%; height: 300px; overflow: hidden;}
+.focusImages li{ position: absolute; width: 100%; z-index: 1; left: 0; top: 0; overflow: hidden;}
+.focusImages li a{ display: block; position: relative;}
+.focusImages li a img{ position: absolute; left: 50%; top: 50%;}
+.focusImages li p{ position: absolute; left: 0; right: 0; padding: 1em; line-height: 1.5em; background: #000; background: rgba(0, 0, 0, 0.4); color: #fff; z-index: 1; display: none;}
+.focusNumBox{ position: absolute; z-index: 2; left: 50%; bottom: 10px; white-space: nowrap;}
+.focusNumBox a{ display: inline-block; width: 16px; height: 16px; line-height: 14px; text-align: center; background: #fff; color: #fff; text-decoration: none; overflow: hidden; margin: 0 5px; background:url(images/focusArrli.png) no-repeat 0 0;}
+.focusNumBox a.hideNumTxt{ text-indent: -99em;}
+.focusNumBox a.focusSel{ background-position:-26px 0; color: #000;}
+.focusPreArr,.focusNextArr{ display:none; position: absolute; z-index: 3; top: 50%; width: 40px; height: 70px; border-radius: 3px; background: url("images/focusArr.png") #000 no-repeat 0 center; background: url("images/focusArr.png") rgba(0, 0, 0, .15) no-repeat 0 center; color: #fff;}
+/*.focusPreArr:hover,.focusNextArr:hover{ background: url("images/focusArr.png") #000 no-repeat -36px center; background: url("images/focusArr.png") rgba(0, 0, 0, 0.4) no-repeat -29px center;}*/
+.focusPreArr{ left: 20px;}
+.focusNextArr{ right: 20px; background-position: -50px center;}
+
+/*轮播图样式2==============*/
+.focusBox2 .focusPreArr, .focusBox2 .focusNextArr{width:35px; height:70px; background:url(images/focusArr3.png) no-repeat 0 0;}
+.focusBox2 .focusPreArr{left:0; background-position:0 0;}
+.focusBox2 .focusNextArr{right:0; background-position:-40px 0;}
+.focusBox2 .focusNumBox{padding:0 8px; background:url(images/bg_focusul_repeat.png) repeat 0 0; height:20px; border-radius:10px;}
+.focusBox2 .focusNumBox a{margin:0 3px; background:url(images/bg_focusrepeat.png) repeat 0 0;  border-radius:50%; width:12px; height:12px;}
+.focusBox2 .focusNumBox a.focusSel{background:#ff0000;}
+
+/*轮播图样式3==============*/
+.focusBox3 .focusPreArr, .focusBox3 .focusNextArr{width:59px; height:59px; background:url(images/focusArr4.png) no-repeat 0 0;}
+.focusBox3 .focusPreArr{left:0; background-position:0 0;}
+.focusBox3 .focusNextArr{right:0; background-position:-69px 0;}
+.focusBox3 .focusNumBox a{margin:0 2px; background:url(images/bg_focusrepeat.png) repeat 0 0; width:12px; height:12px;}
+.focusBox3 .focusNumBox a.focusSel{background:#ff0000; width:24px;}
+
+
+
+
+
+
+
+
+
+
+

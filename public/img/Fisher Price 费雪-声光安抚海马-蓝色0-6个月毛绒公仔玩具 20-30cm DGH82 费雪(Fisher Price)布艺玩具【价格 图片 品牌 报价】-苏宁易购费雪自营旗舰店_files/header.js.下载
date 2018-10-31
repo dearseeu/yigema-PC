@@ -1,0 +1,310 @@
+$(function(){
+	
+	var debug = location.href.indexOf('debug') >= 0;
+	
+	var shopType = sn.shop.shopType;
+	var sfsHeadSearchUrl = sn.config.header_search;
+	var shopCart_Link = sn.config.cart;
+	var shop_context = sn.shop.context;
+	var shop_search = shop_context + sn.shop.shopId + '/' + sn.shop.search;
+	var spcode = sn.shop.spcode;
+	var supplierCode1 = sn.shop.supplierCode1||sn.shop.supplierCode2;
+	var shopType = sn.shop.shopType;
+	var cart_disable = window.cart_disable || false;
+	
+	var header = {
+		parseJSON : function(sjson){
+			try{
+				return eval("("+sjson+")");
+			}catch(e){
+				console.info(e.message);
+			}
+		},
+		//头部宽度适配
+		fixWidth : function(){
+			//重写String的函数，一个中文为两个字符
+			String.prototype.getCnStrLen = function(){
+				return this.replace(/[^\x00-\xff]/g,"aa").length;
+			};
+			
+			var wH = $(window).width();
+			if(wH>1200){
+				$(".g-header .wrapper").addClass("wrapper2");
+				$(".g-toolbar .wrapper").addClass("wrapper2");
+				$(".ng-toolbar .ng-toolbar-con").addClass("wrapper2");
+//				var len = $("#chead_indexUrl").html() || '';
+//				if(len.getCnStrLen() > 34){
+//					$("#chead_indexUrl").html(len.substr(0, 15)+"...");
+//				}
+			}else{
+				$(".g-header .wrapper").removeClass("wrapper2");
+				$(".g-toolbar .wrapper").removeClass("wrapper2");
+				$(".ng-toolbar .ng-toolbar-con").removeClass("wrapper2");
+//				var len = $("#chead_indexUrl").html() || '';
+//				if(len.getCnStrLen() > 24){
+//					$("#chead_indexUrl").html(len.substr(0, 10)+"...");
+//				}
+			}
+			
+		},
+		/**
+		 * 修复二维码位置
+		 */
+//		fixQrCode : function(){
+//			var wH = $(window).width();
+//			var qrL = (wH-990)/2-110;
+//			$(".qr-code").css("left",qrL);
+//		},
+		//购物车
+		cart : {
+			//获取购物车商品数量
+			getNum : function(){
+				return d('totalProdQty') || "0";
+			},
+			bind : function(){
+				var cart = this;
+				//初始化购物车商品数量
+				$("#cartShopNum").text(this.getNum());
+				//鼠标移入时，重新获取购物车数量
+				$("#shopCartLink").mouseover(function(){
+					$("#cartShopNum").text(cart.getNum());
+				});
+				//购物车跳转地址
+				$("#shopCartLink").click(function(){
+					if ( shopCart_Link && !cart_disable){
+						document.location = shopCart_Link;
+					}
+				});
+				//回到顶部按钮控制
+				$(window).scroll(function(){
+			        var topM = $(document).scrollTop();
+			        if(topM>5){
+			            $("#gSideTools").find("li.backtop").show();
+			        }else{
+			            $("#gSideTools").find("li.backtop").hide();
+			        }
+			    });
+				
+				var im_el = "#rightFloatService,#onlineService1,#beforeService1";
+				$(im_el).attr('sf-im',1).hide();
+				//获取客服图标(只包括swl的售前客服和其他类型的在线客服
+				getSupplierState(im_el,"00"+supplierCode1,shopType);
+				
+			    //在线客服绑定(只包括swl的售前客服和其他类型的在线客服
+			    $(im_el).click(function(){
+			    	findpassSupplier("00"+supplierCode1,"","","");
+			    });
+			    
+			    //苏宁售后客服
+			    $('#afterService1').live('click',function(){
+			    	findpass('', '', '');
+				});
+				
+			}
+		},
+		//搜索
+		search : {
+			bind : function(){
+				//联想词搜索
+				$("#ac_results").on('click','li',function(){
+					var keyWord = $("#searchKeywords").val();
+					keyWord = resolveStr(keyWord);
+					var url = '';
+					
+					if($(this).hasClass('g-ac-store')){//搜店铺
+						url = sfsHeadSearchUrl+"shop/search.do?app=shopsearch&keyword="+keyWord;
+						document.location = url;
+					}else if ($(this).hasClass('cateSearch')){//分类下搜商品
+						url = sfsHeadSearchUrl+keyWord+"/&ci="+$(this).attr("categoryid");
+						document.location = url;
+					}else{//全局搜商品
+//						keyWord = resolveStr($(this).find("span").eq(0).text());
+//						url = sfsHeadSearchUrl+keyWord+"/";
+						keyWord = $(this).find("span").eq(0).text();
+						$("#searchKeywords").val(keyWord);
+					}
+				});
+				//搜本店
+				$("#searchShopSubmit").click(function(){
+					var keyWord = $("#searchKeywords").val();
+					//keyWord = keyWord.replace(/\%/g,"");
+					//keyWord = keyWord.replace(/\//g," ");
+					//keyWord = encodeURIComponent(resolveStr(keyWord));
+					Shop.search.searchTo({keyword:keyWord},this);
+				});
+				//绑定搜易购按钮
+				$("#searchEbuySubmit").click(function(){
+					searchFromHomeSit();
+				});
+				//输入关键词回车,搜易购
+				$("#searchKeywords").keydown(function(event){
+					if(event.keyCode == 13){
+						searchFromHomeSit();
+					}
+				});
+				//搜索框文字变化
+				$("#searchKeywords").focus(function(){
+					$(this).parents("div:eq(0)").addClass("g-search-focus");
+					var searchDefaultKeyword = $("#searchDefaultKeyword").val();
+					var searchKeywords = $(this).val();
+					if (searchKeywords == searchDefaultKeyword){
+						$(this).val("");
+					}
+					$(this).css({'color':'rgb(0, 0, 0)'});
+				}).blur(function(){
+					$(this).parents("div:eq(0)").removeClass("g-search-focus");
+					var searchDefaultKeyword = $("#searchDefaultKeyword").val();
+					var searchKeywords = $(this).val();
+					if (searchKeywords == ""){
+						$(this).val(searchDefaultKeyword);
+						$(this).css({'color':'rgb(153, 153, 153)'});
+					}
+				});
+				//过滤特殊字符
+				function resolveStr(str) {
+					str = str.replace(/\//g,"%2F");
+					str = str.replace(/\-/g, "%2d");
+					str = str.replace(/\&/g, "%26");
+					str = str.replace(/\./g, "%2E");
+					str = str.replace(/\+/g, "%2B");
+					return str;
+				}
+				//搜易购
+				function searchFromHomeSit(){
+					var keyWord = $("#searchKeywords").val();
+					document.location = sfsHeadSearchUrl+encodeURIComponent(resolveStr(keyWord))+"/";
+				}
+				/**
+				 * 从cookie中获取城市编码
+				 */
+				function getCityId(){
+					return (d('SN_CITY')||'10_010').split("|")[0].split("_")[1];
+				}
+			}
+		},
+		//店铺
+		shop : {
+			load : function(){
+				
+				//收藏店铺按钮绑定
+				$('#storeShop3').click(function(){
+					if("header"==sn.page.pageType){
+						var name = "SHOPSEARCH_00"+spcode;
+						mySuning.add2ShopFavorite("00"+spcode, "shopHome",name);
+					}else{
+						shopSideBar.shoucang.shopfavorite("00"+spcode);
+					}
+				});
+				
+				//同行业比较
+				function showPercentagePic(percentage,comparetage){
+					percentage = percentage || '0';
+					comparetage = comparetage || '0';
+					var p = parseInt(percentage);
+					percentage = p < 0 ? percentage.slice(1) : percentage ;
+					var config = {
+							hold : '<span class="per per-hold"><em class="em1">------</em></span>',//持平
+							down : '<span class="per per-down" ><em class="em2">'+percentage +'</em></span>',//低于
+							up : '<span class="per per-up" ><em class="em1">'+percentage +'</em></span>'//高于
+					};
+					var viewId = comparetage == 0 ? 'hold' : comparetage < 0 ? 'down' : 'up';
+					return config[viewId] || config.hold;
+				}
+				//字数限制
+				var cTextctrl = function(){
+					var cText = $(".JS_txtCtrl i").text();
+					var nLength = $(".JS_txtCtrl").text().length;
+					if(nLength>40){
+					$(".JS_txtCtrl i").text(cText.substring(0,40));
+					}
+				};
+				cTextctrl();
+				
+				//渲染店铺信息
+				function renderShopInfo(data){
+					if(data){
+						$("#chead_indexUrl").attr("href",data.indexUrl);
+						$("#chead_shopIndexUrl").attr("href",data.indexUrl);
+						var dstar = "5.00";
+						$("#chead_shopStar").text(data.star||dstar);
+						$("#chead_qualityStar").text("商品满意度："+(data.Qstar||dstar)+"分");
+						$("#chead_attitudeStar").text("服务满意度："+(data.Astar||dstar)+"分");
+						$("#chead_deliverySpeedStar").text("物流满意度："+(data.Dstar||dstar)+"分");
+						
+						$("#chead_qualityPercent").replaceWith(showPercentagePic(data.Qpercent,data.Qcompare));
+						$("#chead_attitudePercent").replaceWith(showPercentagePic(data.Apercent,data.Acompare));
+						$("#chead_deliverySpeedPercent").replaceWith(showPercentagePic(data.Dpercent,data.Dcompare));
+						
+						if (data.logoUrlBig){
+							var logoImg = $("#chead_logoUrl img");
+							var dLogoUrl = logoImg.attr('src');
+							logoImg[0] && (logoImg[0].onerror = function(){
+								this.src != dLogoUrl ? this.src = dLogoUrl : '';
+							});
+							logoImg.attr('src',data.logoUrlBig);
+							//$("#chead_logoUrl").html("<img src='" + data.logoUrl_60 + "' />");
+						}
+						
+						$("#chead_companyName").text(data.companyName ? data.companyName : "");
+						
+						var data_companyAddress = (data.companyProvince ? data.companyProvince : "江苏")
+							+ "," + (data.companyCity ? data.companyCity : "南京");
+						$("#chead_companyAddress").text(data_companyAddress.replace(/^,|,$/img,""));
+						
+						$("#chead_telPhone").text(data.telPhone ? data.telPhone : "");
+						
+						//展示下拉框
+						$("#chead_road").removeClass("bg-none");
+						$("#chead_roadPic").hide();
+						$(".JS_store_grade").hover(function(){
+							$('.sg-details').stop();
+							$(".store-grade").addClass("store-grade-hover");
+							$('.sg-details').show();
+						},function(){
+							$('.sg-details').stop();
+							$(".store-grade").removeClass("store-grade-hover");
+							$('.sg-details').hide();
+						});
+						
+						//在线客服状态处理
+						if(data.imStatus==1){
+							$('[sf-im]').show();
+						}else{
+							$('[sf-im]').hide();
+						}
+					}
+				}
+				
+				var shopId = sn.shop.shopId;
+				var shopInfoUrl4jsonp = shop_context + 'jsonp/'+shopId+'/shopinfo/shopinfo.html';
+				$.ajax({
+					url: shopInfoUrl4jsonp,
+					dataType: "jsonp",
+					cache: true,
+					jsonpCallback: "shopinfo",
+					success : renderShopInfo,
+	                error : function() {
+						debug && console.info('加载店铺页头失败');
+					}
+				});
+				
+				
+			}
+		}
+	};
+	
+	header.fixWidth();
+	//header.fixQrCode();
+	$(window).resize(function(){
+		header.fixWidth();
+		//header.fixQrCode();
+	});
+	//购物车绑定
+	header.cart.bind();
+	//搜索绑定
+	header.search.bind();
+	//店铺信息加载
+	header.shop.load();	
+	
+});
+

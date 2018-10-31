@@ -1,0 +1,25 @@
+body,p,ul,ol,dl,h1,h2,h3,h4,h5,h6{
+    margin:0;
+}
+.container{
+    min-width:1200px !important;
+}
+.container-fluid{
+    min-width: 1200px;
+}
+.my_font_small{
+    font-size:0.55rem;
+}
+.my_red_color{
+    color:#E31939;
+}
+a{
+    color:#000;
+}
+a:hover{
+    text-decoration: none;
+    color:#E31939;
+}
+.base_font{
+    font-size:0.7rem;
+}

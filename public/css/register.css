@@ -1,0 +1,100 @@
+#res_msg{
+    color: red;
+    width: 250px;
+    margin: 10px auto;
+}
+.regPage{
+    /*border: 1px solid red;*/
+    padding: 80px 0 80px 0;
+    background: url(../img/login_bg.jpg) repeat;
+    position: relative;
+    /*z-index: 1;*/
+}
+.regCount{
+    width: 915px;
+    margin: 0 auto;
+    background: #FFF;
+    border: #d6d6d6 solid 1px;
+    /*box-shadow: 0 1px 2px #d6d6d6;*/
+
+    padding: 35px 0 25px 45px;
+}
+.regLeft{
+    width: 450px;
+    /*border: 1px solid red;*/
+    padding: 20px 0 20px 20px ;
+}
+.regRight {
+    /*border: 1px solid red;*/
+    padding-left: 42px;
+    width: 351px;
+    border-left: 1px solid red;
+    margin-top: 40px;
+    /*min-height: 388px;*/
+    /*_height: 388px;*/
+}
+.regInput{
+    width: 261px;
+    height: 30px;
+    font-size: 16px;
+    /*margin-top: 20px;*/
+    padding: 5px 0 5px 10px;
+}
+.regPage dt{
+    width: 95px;
+    padding-right: 20px;
+    text-align: right;
+    font: 14px tahoma,arial,\5b8b\4f53;
+}
+.codeBtn{
+    width: 120px;
+    height: 30px;
+    display: block;
+    /*border: 1px solid red;*/
+    font-size: 14px;
+    /*margin-right: 10px;*/
+    margin-bottom: 20px;
+    padding: 5px 0 5px 10px;
+}
+.codeBtn_a{
+    width: 120px;
+    height: 30px;
+    background: #9D9D9D;
+    padding: 5px 10px;
+    display: block;
+    font-size: 14px;
+}
+.logBtn{
+    width: 93px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #E31939;
+    color: #E31939;
+    text-align: center;
+}
+.loginOther{
+    height: 92px;
+    overflow: hidden;
+}
+.loginOther li{
+    height: 36px;
+    width: 133px;
+    text-align: center;
+    line-height: 36px;
+    background: #EDEDED;
+    border: #d4d4d4 solid 1px;
+    border-radius: 4px;
+    margin: 5px 10px;
+}
+
+.loginOther li a{
+    padding-left: 10px;
+}
+.copyRight a::after{
+    content: url("../img/border.png");
+    margin: 0 10px;
+}
+.textHide{
+    display: none;
+    font-size: 14px;
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>益阁玛</title>
+</head>
+<body>
+    <!--侧边导航栏-->
+    <nav id="aside"></nav>
+    <!--头部-->
+    <header id="header"></header>
+    <!--第一行:轮播图-->
+    <div class="slideBox container-fluid p-0">
+        <ul class="list-unstyled">
+            <li><img src="img/banner1.jpg" alt="" /></li>
+            <li><img src="img/banner2.jpg" alt="" /></li>
+            <li><img src="img/banner3.jpg" alt="" /></li>
+        </ul>
+        <div class="spanBox">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="prev"><img src="img/prev.png" alt=""/></div>
+        <div class="next"><img src="img/next.png" alt=""/></div>
+        <div class="ad">
+            <h6 class="ad_span">加入宝宝成长计划</h6>
+            <img src="img/baby.png" alt="">
+            <a href="#" class="ad_plan">加入宝宝成长计划</a>
+            <a href="#" class="ad_intro">宝宝成长计划简介</a>
+        </div>
+    </div>
+    <!--主体-->
+    <section class="container-fluid">
+        <div id="scrolldiv">
+            <ul class="list-unstyled">
+                <li>奶粉</li>
+                <li>尿布</li>
+                <li>喂养</li>
+            </ul>
+        </div>
+        <div class="container w-100">
+            <!--第二行:图片商品列表-->
+            <div class="row justify-content-around mt-2 section_first">
+                <div class="d-flex section_first_div1">
+                    <div><img src="img/product1.jpg" alt=""></div>
+                    <div><img src="img/product2.jpg" alt=""></div>
+                    <div><img src="img/product3.jpg" alt=""></div>
+                    <div><img src="img/procuct4.jpg" alt=""></div>
+                    <div><img src="img/product10.jpg" alt=""></div>
+                </div>
+                <div class="d-flex section_first_div1">
+                    <div><img src="img/product11.jpg" alt=""></div>
+                    <div><img src="img/product12.jpg" alt=""></div>
+                    <div><img src="img/product13.jpg" alt=""></div>
+                    <div><img src="img/product14.jpg" alt=""></div>
+                    <div><img src="img/produc13.jpg" alt=""></div>
+                </div>
+            </div>
+            <!--第三行:导航-->
+            <div class="row justify-content-start mt-3 section_nav">
+                <ul class="nav">
+                    <li class="nav-item now">
+                        <a href="#hot_rank" class="nav-link base_font" data-toggle="data" data-target="#hot_rank">热销排行</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#hot_sale" class="nav-link base_font" data-toggle="data" data-target="#hot_sale">商城热卖</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link base_font" data-toggle="data" data-target="#hot_intro">商城推荐</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link base_font" data-toggle="data" data-target="#hot_new">新品上市</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link base_font" data-toggle="data" data-target="#hot_guess">猜你喜欢</a>
+                    </li>
+                </ul>
+                <div class="triangle"></div>
+            </div>
+            <!--第四行:导航list(后台生成)-->
+            <div class="row">
+                <div id="hot_rank" class="sale_goods_list now"></div>
+                <div id="hot_sale" class="sale_goods_list"></div>
+                <div id="hot_intro" class="sale_goods_list"></div>
+                <div id="hot_new" class="sale_goods_list"></div>
+                <div id="hot_guess" class="sale_goods_list"></div>
+            </div>
+            <!--第五行:图片-->
+<!--             <div class="row"> -->
+<!--                 <ul class="list-unstyled d-flex changeUl"> -->
+<!--                     <li> -->
+<!--                         <img src="img/1.1.jpg" alt="" data-t="change" data-f="img/1.jpg" data-s="img/1.1.jpg"> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                         <img src="img/2.jpg" alt="" data-t="change" data-f="img/2.jpg" data-s="img/2.2.jpg"> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                         <img src="img/3.jpg" alt="" data-t="change" data-f="img/3.jpg" data-s="img/3.3.jpg"> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                         <img src="img/4.jpg" alt="" data-t="change" data-f="img/4.jpg" data-s="img/4.4.jpg"> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                         <img src="img/5.jpg" alt="" data-t="change" data-f="img/5.jpg" data-s="img/5.5.jpg"> -->
+<!--                     </li> -->
+<!--                 </ul> -->
+<!--             </div> -->
+            <div class="row section_fifth mt-2 justify-content-start">
+                <div><img src="img/fifth1.jpg" alt="" class="img-fluid"></div>
+                <div><img src="img/fifth2.jpg" alt="" class="img-fluid"></div>
+                <div><img src="img/fifth3.jpg" alt="" class="img-fluid"></div>
+                <div><img src="img/fifth4.jpg" alt="" class="img-fluid"></div>
+                <div><img src="img/fifth5.jpg" alt="" class="img-fluid"></div>
+            </div>
+            <!--楼层:1F:导航-->
+            <div class="row section_floor mt-2">
+                <div class="floor_title"><a href="#"><img src="img/floor.png" alt=""> 奶粉辅食</a></div>
+                <div class="floor_nav">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#choice">精挑细选</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#baby">婴儿奶粉</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#man">成人奶粉</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#babyfood">婴幼儿零食</a></li>
+                    </ul>
+                </div>
+                <div class="box"></div>
+            </div>
+            <!--楼层:商品列表-->
+            <div class="row floor_list">
+                <div class="list_title"><img src="img/product8.jpg" alt=""></div>
+                <div class="list_box list_box_now" id="choice"></div>
+                <div class="list_box" id="baby"></div>
+                <div class="list_box" id="man"></div>
+                <div class="list_box" id="babyfood"></div>
+            </div>
+            <!--楼层:2F:导航-->
+            <div class="row section_floor mt-2">
+                <div class="floor_title"><a href="#"><img src="img/floor.png" alt=""> 尿裤湿巾</a></div>
+                <div class="floor_nav">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#floor2_1">精挑细选</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#floor2_2">湿巾</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#floor2_3">纸尿裤</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#floor2_4">尿裤湿巾</a></li>
+                    </ul>
+                </div>
+                <div class="box"></div>
+            </div>
+            <!--楼层:2F:商品列表-->
+            <div class="row floor_list">
+                <div class="list_title"><img src="img/product9.jpg" alt=""></div>
+                <div class="list_box list_box_now" id="floor2_1"></div>
+                <div class="list_box" id="floor2_2"></div>
+                <div class="list_box" id="floor2_3"></div>
+                <div class="list_box" id="floor2_4"></div>
+            </div>
+            <!--楼层:3F:导航-->
+            <div class="row section_floor mt-2">
+                <div class="floor_title"><a href="#"><img src="img/floor.png" alt=""> 喂养用品</a></div>
+                <div class="floor_nav">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#floor3_1">精挑细选</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#floor3_2">辅食工具</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#floor3_3">奶瓶刷</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="item" data-target="#floor3_4">安抚奶嘴</a></li>
+                    </ul>
+                </div>
+                <div class="box"></div>
+            </div>
+            <!--楼层:3F:商品列表-->
+            <div class="row floor_list">
+                <div class="list_title"><img src="img/product6.jpg" alt=""></div>
+                <div class="list_box list_box_now" id="floor3_1"></div>
+                <div class="list_box" id="floor3_2"></div>
+                <div class="list_box" id="floor3_3"></div>
+                <div class="list_box" id="floor3_4"></div>
+            </div>
+            <!-- 重写商品列表 -->
+            <!-- <div ></div> -->
+        </div>
+    </section>
+    <!--底部-->
+    <footer id="footer"></footer>
+    <!--引入文件-->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/aside.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>

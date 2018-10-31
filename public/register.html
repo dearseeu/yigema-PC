@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/register.css">
+    <title>注册益阁玛</title>
+</head>
+<body>
+<!--注册页面-->
+<div class="container-fluid p-0">
+    <!--第一行:头部-->
+    <div class="container">
+        <div class="row justify-content-around align-items-end mt-3 mb-2">
+            <!--第一行:左:图标+用户登陆-->
+            <div class="d-flex align-items-center"><img src="img/logo.gif" alt=""><h6 class="font-weight-bold">用户注册</h6></div>
+            <!--第一行:右:益阁玛首页 手机版 搜索-->
+            <div>
+                <ul class="list-unstyled d-flex base_font">
+                    <li class="mr-3"><a href="index.html">益阁玛首页</a></li>
+                    <li class="mr-3"><a href="#">手机版</a></li>
+                    <li class="mr-3"><a href="#">搜索</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="regPage">
+        <div class="container">
+            <div class="regCount d-flex">
+                <div class="regLeft">
+                    <h6 class="mb-3 text-muted"><img src="img/line.png" alt="">注册益阁玛,与千万妈妈学习,交流育儿知识!</h6>
+                    <dl class="d-flex align-items-baseline">
+                        <dt>手机号:</dt>
+                        <dd><input type="text" class="regInput phone"><div class="textHide">请输入有效的11位手机号</div></dd>
+                    </dl>
+                    <dl class="d-flex align-items-baseline">
+                        <dt>创建密码:</dt>
+                        <dd><input type="text" class="regInput pwd"><div class="textHide">密码由6-8位字符组成</div></dd>
+                    </dl>
+                    <dl class="d-flex align-items-baseline">
+                        <dt>图形验证码:</dt>
+                        <dd><input type="text" class="regInput"></dd>
+                    </dl>
+                    <dl class="d-flex align-items-baseline">
+                        <dt>短信验证码:</dt>
+                        <dd>
+                            <input type="text" class="codeBtn">
+                        </dd>
+                        <dd><a href="#" class="codeBtn_a ml-3 text-white">免费获取验证码</a></dd>
+                    </dl>
+                    <dl class="d-flex align-items-baseline">
+                        <dt></dt>
+                        <dd>
+                            <a href="#" class="btn btn-danger" id="register">立即注册</a>
+                        </dd>
+                        <dd class="small ml-5">
+                            <input type="checkbox" class="mr-1">接受<a href="#" class="ml-1"><u>用户协议</u></a>
+                        </dd>
+                    </dl>
+                    <div id="res_msg"></div>
+                </div>
+                <div class="regRight">
+                    <p class="small d-flex align-items-center justify-content-around">
+                        <span>已有益阁玛账号?</span><a href="login.html" class="logBtn">登录</a>
+                    </p>
+                    <hr class="m-4">
+                    <h6 class="mt-3 text-muted">您也可以使用以下账号登陆益阁玛</h6>
+                    <ul class="mt-3 loginOther list-unstyled base_font d-flex flex-wrap">
+                        <li><img src="img/qq.png" alt=""><a href="#">QQ账号登陆</a></li>
+                        <li><img src="img/qq.png" alt=""><a href="#">QQ账号登陆</a></li>
+                        <li><img src="img/qq.png" alt=""><a href="#">QQ账号登陆</a></li>
+                        <li><img src="img/qq.png" alt=""><a href="#">QQ账号登陆</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-muted">
+        <div class="row base_font d-flex justify-content-around mt-3">
+            <div class="font-weight-bold">北京益阁玛网络技术有限公司版权所有 京ICP证010534号</div>
+            <div class="copyRight">
+                <a href="#">网站地图</a>
+                <a href="#">关于我们</a>
+                <a href="#">友情链接</a>
+                <a href="#">广告服务</a>
+                <a href="#">版权声明</a>
+                <a href="#">益阁玛招聘</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

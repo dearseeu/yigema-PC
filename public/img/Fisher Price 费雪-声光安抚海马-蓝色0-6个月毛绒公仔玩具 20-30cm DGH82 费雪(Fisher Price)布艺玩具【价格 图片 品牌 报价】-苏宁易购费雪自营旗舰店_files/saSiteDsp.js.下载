@@ -1,0 +1,412 @@
+﻿/**
+ * 站内曝光接口
+ * 桑强 14101110
+ **/
+var sa = sa || {};
+var _ssa = _ssa || {};
+var saExportUtil = saExportUtil || {};
+
+(function() {
+    var __conf = {
+        isSaPrd: (function() {
+            function getJsUrl(jsName) {
+                var jsObjs = document.scripts;
+                var jsPath = "";
+                for (var i = 0; i < jsObjs.length; i++) {
+                    jsPath = jsObjs[i] ? jsObjs[i].src : "";
+                    if (jsPath.indexOf(jsName) > -1) {
+                        return jsPath;
+                    }
+                }
+                return "";
+            }
+            var _url = getJsUrl('saSiteDsp.js');
+            if (!_url) {
+                return false;
+            }
+            if (_url && (_url.indexOf('//sitres.suning') > -1 ||
+                    _url.indexOf('//preres.suning') > -1 ||
+                    _url.indexOf('//sitsslres.suning') > -1 ||
+                    _url.indexOf('//presslres.suning') > -1 ||
+                    _url.indexOf('//resprexg.suning') > -1 ||
+                    _url.indexOf('loc/static')) > -1) {
+                return false;
+            }
+            return true;
+        })()
+    };
+    var __ut = {
+        getJsUrl: function(jsName) {
+            var jsObjs = document.scripts;
+            var jsPath = "";
+            for (var i = 0; i < jsObjs.length; i++) {
+                jsPath = jsObjs[i] ? jsObjs[i].src : "";
+                if (jsPath.indexOf(jsName) > -1) {
+                    return jsPath;
+                }
+            }
+            return "";
+        }
+    }
+    var _urlRex = /\.suning\.com/,
+        _protocol = "//",
+        _server = _getServer(),
+        _toUrl = _encode(_getToUrl()),
+        _tag = "|";
+
+    var _pvId = _createPageViewId(),
+        _visitorId = "",
+        _loginUserName = "",
+        _memberID = "-",
+        _sessionId = "",
+        _pageType = "";
+
+    var _urlPattern = document.getElementById("URLPattern") || document.getElementById("CUrlPattern"),
+        _urlPattern = _urlPattern ? _urlPattern.value : "";
+
+    //初始化各个通用参数
+    _initCommonParam();
+
+    var HashMap = function() {
+        var size = 0;
+
+        var entry = new Object();
+
+        this.getThis = function() {
+            return entry;
+        }
+
+        //add
+        this.put = function(key, value) {
+            if (!this.containsKey(key)) {
+                size++;
+            }
+            entry[key] = value;
+        }
+
+        //get
+        this.get = function(key) {
+            if (this.containsKey(key)) {
+                return entry[key];
+            } else {
+                return null;
+            }
+        }
+
+        //delete
+        this.remove = function(key) {
+            if (delete entry[key]) {
+                size--;
+            }
+        }
+
+        //containsKey
+        this.containsKey = function(key) {
+            return (key in entry);
+        }
+
+        //containsValue
+        this.containsValue = function(value) {
+            for (var prop in entry) {
+                if (entry[prop] == value) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //get all values
+        this.values = function() {
+            var values = new Array(size);
+            for (var prop in entry) {
+                values.push(entry[prop]);
+            }
+            return values;
+        }
+
+        //get all keys
+        this.keys = function() {
+            var keys = new Array(size);
+            for (var prop in entry) {
+                keys.push(prop);
+            }
+            return keys;
+        }
+
+        //size
+        this.size = function() {
+            return size;
+        }
+    }
+
+    function ExportUtil() {
+        var oThis = this;
+
+        var EXPO_TYPE_PRODUCT = 1; //商品曝光
+        var EXPO_TYPE_AD = 2; //广告曝光
+        var EXPO_TYPE_DIR = 3; //目录导航曝光
+        var AD_MAX_EXPORT_COUNT = 2; //每个广告位最多只曝光2次
+
+        //用户保存广告的曝光次数
+        //key: 广告title
+        //value：曝光次数
+        var adExproMap = new HashMap();
+        oThis.getAdExproMap = function() {
+            return adExproMap;
+        }
+
+        /**
+         * 广告轮播采集接口
+         * @expoInfo: 曝光坑位+曝光元素的组合信息
+         *            [举例] 曝光坑位01:曝光元素信息01
+         **/
+        oThis.adverCarousel = function(expoInfo) {
+            oThis.sendExpoData(expoInfo, EXPO_TYPE_AD, false);
+        }
+
+        /**
+         * 点击广告采集接口
+         * @expoInfo: 曝光坑位+曝光元素的组合信息
+         *            [举例] 曝光坑位01:曝光元素信息01
+         **/
+        oThis.adverClick = function(expoInfo) {
+            oThis.sendExpoData(expoInfo, EXPO_TYPE_AD, true);
+        }
+
+        /**
+         * 广告位在滚动页面时，由隐藏到显示,或者由不可见到可见
+         * @expoInfo: 曝光坑位+曝光元素的组合信息，多个的时候，每组之间用逗号分隔
+         *            [举例] 曝光坑位01:曝光元素信息01,曝光坑位02:曝光元素信息02,曝光坑位03:曝光元素信息03
+         **/
+        oThis.adverShow = function(expoInfo) {
+            oThis.sendExpoData(expoInfo, EXPO_TYPE_AD, true);
+        }
+
+        /**
+         * 站内曝光发送接口
+         * 支持一次批量发送多个坑位的曝光信息，但是必须同一类型的曝光信息！即expoType必须相同！
+         * @expoInfo: 曝光坑位+曝光元素的组合信息，多个的时候，每组之间用逗号分隔
+         *            [举例] 曝光坑位01:曝光元素信息01,曝光坑位02:曝光元素信息02,曝光坑位03:曝光元素信息03
+         * @expoType: 曝光元素类型
+         *            1为商品 2为广告 3为目录
+         **/
+        oThis.sendCustomExpoData = function(expoInfo, expoType) {
+            oThis.sendExpoData(expoInfo, expoType);
+        }
+
+        /**
+         * 站内曝光发送综合接口
+         * 该接口覆盖了以上几个接口的发送场景
+         * 支持一次批量发送多个坑位的曝光信息，但是必须同一类型的曝光信息！即expoType必须相同！
+         * @expoInfo: 曝光坑位+曝光元素的组合信息，多个的时候，每组之间用逗号分隔
+         *            [举例] 曝光坑位01:曝光元素信息01,曝光坑位02:曝光元素信息02,曝光坑位03:曝光元素信息03
+         * @expoType: 曝光元素类型
+         *            1为商品 2为广告 3为目录
+         * @isInit:   是否初始化广告曝光的计数器，取值范围：true/false。
+         *            true的时候，每次曝光都发送；false的时候每个广告累计曝光2次就停止曝光
+         *            当曝光元素类型expoType=2 是广告的时候，需要传递此值。不传值的时候，默认为false
+         *            (1)如果是点击广告，每次点击都调用该接口，isInit传true
+         *            (2)如果是广告自然轮播，每次轮播都调用该接口，isInit传false
+         *            (3)如果广告位在滚动页面时，由隐藏到显示,或者由不可见到可见的过程时，isInit传true
+         **/
+        oThis.sendExpoData = function(expoInfo, expoType, isInit) {
+            try {
+                if (!expoInfo || expoInfo == "") {
+                    return false;
+                }
+
+                if (!isInit) {
+                    isInit = false;
+                }
+
+                //广告曝光
+                if (expoType == EXPO_TYPE_AD) {
+                    //如果需要初始化统计，清除广告曝光数据集合Map的数据，将所有广告的曝光次数归零
+                    if (isInit && isInit == true) {
+                        adExproMap = new HashMap();
+                    }
+
+                    var key = expoInfo;
+                    var adExpoCount = adExproMap.get(key);
+                    if (!adExpoCount || adExpoCount <= 2) {
+                        _sendData(expoInfo, EXPO_TYPE_AD);
+                        adExpoCount = adExpoCount + 1;
+                        adExproMap.put(key, adExpoCount);
+                        return true;
+                    }
+                    return false;
+                }
+
+                //其他曝光
+                _sendData(expoInfo, expoType);
+            } catch (e) {}
+        }
+
+        /**
+         * 私有方法，发送数据到SA服务器端
+         * @expoInfo: 曝光坑位+曝光元素的组合信息，多个的时候，每组之间用逗号分隔
+         *            曝光坑位01:曝光元素信息01,曝光坑位02:曝光元素信息02,曝光坑位03:曝光元素信息03
+         * @expoType: 曝光元素类型
+         *            1为商品 2为广告 3为目录
+         **/
+        function _sendData(expoInfo, expoType) {
+
+            //曝光数据唯一标识
+            var _oId = _getOnlyId();
+
+            //曝光坑位:曝光元素信息 列表
+            var _expoInfo = _encode(expoInfo);
+
+            //曝光元素类型
+            var _expoType = expoType;
+
+            // abtest
+            var abtest = document.getElementById("ssa-abtest");
+            if (abtest) {
+                abtest = abtest.value;
+            }
+
+            var _url = "/ajaxSiteExpro.gif" + "?" + "oId=" + _oId + "&pvId=" + _pvId +
+                "&expoInfo=" + _expoInfo + "&expoType=" + _expoType +
+                "&pageUrl=" + _toUrl + "&visitorId=" + _visitorId +
+                "&loginUserName=" + _loginUserName + "&memberID=" + _memberID +
+                "&sessionId=" + _sessionId + "&pageType=" + _pageType + "&hidUrlPattern=" + _urlPattern +
+                "&ab=" + abtest;
+            _httpGifSend(_url);
+        }
+    }
+
+    //初始化各个通用参数
+    function _initCommonParam() {
+        //访问者唯一标识
+        var cookie_snma = _getCookie("_snma");
+        try {
+            if (cookie_snma != undefined && cookie_snma != null && cookie_snma.indexOf("|") >= 0) {
+                try {
+                    _visitorId = cookie_snma.split("|")[1];
+                } catch (e) {}
+            }
+        } catch (e) {}
+
+        //登陆账号
+        var cookie_idsLoginUserIdLastTime = _getCookie("idsLoginUserIdLastTime");
+        try {
+            if (cookie_idsLoginUserIdLastTime != undefined && cookie_idsLoginUserIdLastTime != null) {
+                _loginUserName = _encode(cookie_idsLoginUserIdLastTime);
+            }
+        } catch (e) {}
+
+        //会员编码
+        _memberID = _getCookie("custno") ? _getCookie("custno") : "-";;
+
+        //会话唯一标识
+        var cookie_snmb = _getCookie("_snmb");
+        try {
+            if (cookie_snmb != undefined && cookie_snmb != null && cookie_snmb.indexOf("|") >= 0) {
+                _sessionId = cookie_snmb.split("|")[0];
+            }
+        } catch (e) {}
+
+        //页面类型
+        try {
+            _pageType = (_pageType = document.getElementById("resourceType")) ? _pageType.value : "web";
+            //内嵌H5页面，如果ua包含SNEBUY，则为inapp
+            if(_pageType == "wap" && navigator.sakey){
+                var ua = navigator.userAgent,
+                    uaReg = /(SNEBUY)/i;
+                if(uaReg.test(ua)){
+                    _pageType = "inapp";
+                }
+            }
+        } catch (e) { }
+    }
+
+    //生成页面访问唯一标识pvId
+    function _createPageViewId() {
+        if (!sa.pvId) {
+            sa.pvId = _getOnlyId();
+        }
+
+        return sa.pvId;
+    }
+
+    function _getOnlyId() {
+        var now = new Date();
+        var m = Math.round(100000 * Math.random());
+        var onlyId = now.getTime().toString().concat(m);
+        return onlyId;
+    }
+
+    function _encode(s) {
+        try {
+            return null != s ? encodeURIComponent(s) : "";
+        } catch (e) {
+            return "";
+        }
+    }
+
+    function _getToUrl() {
+        var toUrl = "-";
+        try {
+            var lhash = getHash();
+            if (document.location.hash) // URL中存在hash的情况
+            {
+                toUrl = document.location.href.substring(0, location.href.indexOf(lhash) - 1);
+            } else {
+                toUrl = document.location.href;
+            }
+        } catch (e) {
+
+        }
+
+        return toUrl;
+    }
+
+    /**
+     * 只有Firefox中把#后的decodeURI了，这在Firefox的地址栏也可以看见。这应该是个bug，如果所有浏览器要保持一致（未decodeURI），使用以下代码
+     * 
+     * @returns _toUrl
+     */
+    function getHash() {
+        var match = location.href.match(/#(.*)$/);
+        return match ? match[1] : '';
+    }
+
+    function _getCookie(cookieName) {
+        try {
+            var b = document.cookie.split("; ");
+            for (var i = 0; i < b.length; i++) {
+                var c = b[i].split("=");
+                if (c[0] == cookieName) return unescape(c[1]);
+            }
+        } catch (e) {
+            return "";
+        }
+    }
+
+    function _getServer() {
+        var url = __ut.getJsUrl("saSiteDsp.js");
+        if (_urlRex.test(document.location.hostname) || __conf.isSaPrd) {
+            return "sa.suning.cn";
+        } else {
+            if (url && url.indexOf("pre") > -1) {
+                return "saprexg.cnsuning.com";
+            } else {
+            return "sasit.suning.cn";
+            }
+        }
+    }
+
+    // gif send
+    function _httpGifSend(strURL) {
+        strURL = _protocol + _server + strURL;
+        var n = "log_" + (new Date()).getTime();
+        var i = window[n] = new Image(); // 把new Image()赋给一个全局变量长期持有
+        i.onload = (i.onerror = function() { window[n] = null; }); // 清除全局引用
+        i.src = strURL + "&iId=" + n;
+        i = null; // 释放局部变量c
+    }
+
+    saExportUtil = new ExportUtil();
+
+})();

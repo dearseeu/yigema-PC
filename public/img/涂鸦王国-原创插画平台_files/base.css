@@ -1,0 +1,150 @@
+body, div, span, applet, object, iframe,input, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { padding: 0; margin: 0; }
+input,select{ vertical-align:middle;}
+img{ vertical-align: top; }
+input,textarea,select{
+
+	font-size:14px;  
+	resize: none;
+}
+body{
+	font-size:14px;  
+	font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+}
+fieldset, img { border: 0; }
+ol, ul ,li{ list-style: none; }
+a{ text-decoration:none; }
+body a{outline:none;blr:expression(this.onFocus=this.blur());} 
+.clearfix:after { content:""; height:0; visibility:hidden; display:block; clear:both; }
+.clearfix { zoom:1; }
+.clear { clear:both }
+.hidden{ display: none; }
+*:focus { outline: none; }
+
+.f-br100{ border-radius: 100%; }
+.f-br50{ border-radius: 50%; }
+
+
+.f-p0{ padding: 0; }
+.f-m0{ margin: 0; }
+
+/* float*/
+.f-fl{ float: left; }
+.f-fr{ float: right; }
+.f-fn{float: none;}
+
+/* padding */
+.f-p40{ padding: 40px; }
+.f-ptb40{ padding-top: 40px; padding-bottom: 40px; }
+.f-pt40{ padding-top: 40px; }
+.f-pr40{ padding-right: 40px; }
+.f-pb40{ padding-bottom: 40px; }
+.f-pl40{ padding-left: 40px; }
+
+
+
+.f-pt0{ padding-top: 0px !important;; }
+.f-pr0{ padding-right: 0px !important;; }
+.f-pb0{ padding-bottom: 0px !important;; }
+.f-pl0{ padding-left: 0px !important;; }
+
+.f-p20{ padding: 20px; }
+.f-ptb20{ padding-top: 20px; padding-bottom: 20px; }
+.f-pt20{ padding-top: 20px; }
+.f-pr20{ padding-right: 20px; }
+.f-pb20{ padding-bottom: 20px; }
+.f-pl20{ padding-left: 20px; }
+
+.f-ptb5{ padding-top: 5px; padding-bottom: 5px; }
+.f-pt5{ padding-top: 5px; }
+.f-pr5{ padding-right: 5px; }
+.f-pb5{ padding-bottom: 5px; }
+.f-pl5{ padding-left: 5px; }
+
+.f-ptb10{ padding-top: 10px; padding-bottom: 10px; }
+.f-pt10{ padding-top: 10px; }
+.f-pr10{ padding-right: 10px; }
+.f-pb10{ padding-bottom: 10px; }
+.f-pl10{ padding-left: 10px; }
+
+
+.f-ptb15{ padding-top: 15px; padding-bottom: 15px; }
+.f-pt15{ padding-top: 15px; }
+.f-pr15{ padding-right: 15px; }
+.f-pb15{ padding-bottom: 15px; }
+.f-pl15{ padding-left: 15px; }
+
+
+/* margin */
+.f-mt0{ margin-top: 0px !important;; }
+.f-mb0{ margin-bottom: 0px !important;; }
+.f-ml0{ margin-left: 0px !important;; }
+.f-mr0{ margin-right: 0px !important;; }
+
+
+.f-mt20{ margin-top: 20px; }
+.f-mb20{ margin-bottom: 20px; }
+.f-ml20{ margin-left: 20px; }
+.f-mr20{ margin-right: 20px; }
+
+.f-mt5{ margin-top: 5px; }
+.f-mb5{ margin-bottom: 5px; }
+.f-ml5{ margin-left: 5px; }
+.f-mr5{ margin-right: 5px; }
+
+.f-mt10{ margin-top: 10px; }
+.f-mb10{ margin-bottom: 10px; }
+.f-ml10{ margin-left: 10px; }
+.f-mr10{ margin-right: 10px; }
+
+
+/*text*/
+.f-block{ display: block; }
+.f-d-n{ display: none; }
+
+
+.f-tac{ text-align: center; }
+.f-tal{ text-align: left; }
+.f-tar{ text-align: right; }
+
+.f-fwb{ font-weight: bold; }
+
+.f-vat{ vertical-align: top; }
+
+.f-fz12{ font-size: 12px !important; }
+.f-fz14{ font-size: 14px !important; }
+.f-fz16{ font-size: 16px !important; }
+.f-fz18{ font-size: 18px !important; }
+.f-fz20{ font-size: 20px !important; }
+.f-fz24{ font-size: 24px !important; }
+
+.f-c09c{ color: #0099CC; }
+.f-c0b9{ color: #00bb9a; }
+.f-cf0{ color: #FF0000; }
+.f-c000{ color: #000; }
+.f-c333{ color: #333; }
+.f-c666{ color: #666; }
+.f-c999{ color: #999; }
+
+.f-ti10{ text-indent: 10px; }
+.f-ti20{ text-indent: 20px; }
+
+.f-lh20{ line-height: 20px; }
+.f-lh22{ line-height: 22px; }
+.f-lh24{ line-height: 24px; }
+.f-lh25{ line-height: 25px; }
+.f-lh26{ line-height: 26px; }
+.f-lh28{ line-height: 28px; }
+.f-lh30{ line-height: 30px; }
+
+/*border*/
+.f-bb-f0{ border-bottom: 1px #f0f0f0 solid; }
+
+.f-ofh{ overflow: hidden; }
+.f-thide{ overflow: hidden;white-space: nowrap;text-overflow: ellipsis; }
+
+
+.b-h20{ clear: both; overflow: hidden; display: block; height: 20px; }
+.b-h30{ clear: both; overflow: hidden; display: block; height: 30px; }
+.b-h40{ clear: both; overflow: hidden; display: block; height: 40px; }
+.b-h50{ clear: both; overflow: hidden; display: block; height: 50px; }
+.b-h60{ clear: both; overflow: hidden; display: block; height: 60px; }

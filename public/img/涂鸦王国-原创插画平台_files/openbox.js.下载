@@ -1,0 +1,97 @@
+/*
+显示微信
+*/
+function showWX(){
+
+ 	layer.open({
+		  type: 1,
+		  title:'王国活动菌',
+		  area: ['258px', 'auto'], //宽高
+		  content: '<div style="padding:30px"><img src="https://imagescdn.poocg.me/2017/8/pic_k99sny8z67oysh48zj2kqhptkbqfhlxv.jpg" width=220></div>'
+		});
+
+}
+
+
+/*
+绑定手机1
+*/
+var bindNotice_d;
+function bindNotice(){
+	bindNotice_d = layer.open({
+						        type: 1
+						        ,title: false //不显示标题栏
+						        ,area: '380px;'
+						        ,shade: 0.8
+						        ,id: 'LAY_bindNotice_d' //设定一个id，防止重复弹出
+						        ,btn: ['马上去绑定']
+						        ,btnAlign: 'c'
+						        ,moveType: 1 //拖拽模式，0或者1
+						        ,content: '<div style="padding: 60px 30px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">你知道吗？亲！<br>根据《中国网络安全法》，为了维护社区的良好秩序，只有绑定实名手机的账号才可以使用此功能哦~ (๑˘ ˘๑)</div>'
+						        ,success: function(layero){
+						          var btn = layero.find('.layui-layer-btn0');
+						          btn.click(function(){
+						          	layer.close(bindNotice_d);
+						          	bindFunc();
+						          });
+						        }
+						      });
+}
+
+
+
+/*
+绑定手机2
+*/
+var bindFunc_d;
+function bindFunc(){
+  
+var arr = {
+		    app: 'home',
+		    action: 'bindmob_iframe',
+		  }
+ var url=arrToUrl("/account",arr);
+	 bindFunc_d = layer.open({
+						        type: 2
+						        ,title: false //不显示标题栏
+						        ,closeBtn: true
+						        ,area: ['380px', '380px']
+						        ,shade: 0.8
+						        ,id: 'LAY_bindFunc_d' //设定一个id，防止重复弹出
+						        ,btn: false
+						        ,btnAlign: 'c'
+						        ,moveType: 0 //拖拽模式，0或者1
+						        ,content: url
+						      });
+}
+
+  
+ /*
+
+function qrcodeBox(){
+
+	 
+	var arr = {
+		    app: 'controller',
+		    action: 'qrcodeBox'
+		  }
+	 
+    var url=arrToUrl("/",arr);
+
+	$.ajax({ url:url, success: function(data){
+      	layer.open({
+		  type: 1,
+		  title:'微信扫码直接登录涂鸦王国小程序',
+		  cancel: function () {
+			clearTimeout(qrcode_timeout)
+			},
+		  area: ['600px', 'auto'], //宽高
+		  content: '<div style="padding:20px 0">'+data+'</div>'
+		});
+      }
+  	});
+
+ 
+}
+*/
+

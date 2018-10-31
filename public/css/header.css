@@ -1,0 +1,74 @@
+header .container .header_second>img{
+    transition: all 100ms linear;
+}
+header .container .header_second>img:hover{
+     transform: scale(1.1);
+ }
+header .my_input{
+    border: 2px solid #E31939;
+}
+header .my_input:focus{
+    box-shadow: 0 0 0 0 !important;
+}
+header .nav .nav-item .nav-link{
+    font-size:16px;
+}
+header .nav .nav_brand{
+    background:#E31939 ;
+    color:#FFFFFF;
+    text-align: center;
+    line-height: 50px;
+    width:210px;
+    height:50px;
+}
+header .nav .nav-item .nav-link:hover{
+    transform: scale(1.1);
+    border-bottom: 1px solid #E31939;
+}
+header .header_list{
+    position: relative;
+
+}
+header .header_list ul{
+    position: absolute;
+    z-index: 10;
+    width: 210px;
+    height:550px;
+    background: rgba(0,0,0,0.5);
+}
+header .header_list ul li>a.btn{
+    width:210px;
+    height:55px;
+    font-size: 16px;
+    color:#f0f0f0;
+    line-height: 40px;
+}
+header .header_list ul li a.active{
+    color:#E31939;;
+    background:#f0f0f0;
+}
+header .header_list ul li .my_bread{
+    position: absolute;
+    left:100%;
+    top:0;
+    width: 700px;
+    background: #fff6f7;
+    padding: 10px 20px;
+}
+header .header_list ul li .my_bread dt{
+    padding:10px;
+}
+header .header_list ul li .my_bread dd{
+    padding:0 5px;
+}
+header .header_list ul li .my_bread a{
+    color:#666666;
+}
+header .header_list ul li .my_bread dd a:not(:last-child):after{
+    content: url("../img/border.png");
+    margin: 0 5px;
+}
+header .header_list ul li .my_bread a:hover{
+    color:red;
+}
+

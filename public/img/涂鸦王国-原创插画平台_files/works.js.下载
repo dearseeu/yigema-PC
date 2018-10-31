@@ -1,0 +1,171 @@
+function gototag(txt){
+	var newTab=window.open('about:blank');
+	var arr = {
+        app: 'search',
+        action: 'do_search',
+        q:txt
+      };
+    var url=arrToUrl("/",arr);
+  $.ajax({ url:url, success: function(data){
+    if(data.status == 1){
+    var gourl = arrToUrl("/",{app:'search',action:'index',type:0});
+ 
+     newTab.location.href=gourl;
+     }else{
+      layer.msg(data.message);
+     }
+    
+    }
+    
+    });
+}
+
+ 
+
+  function addlove(albumid,after){
+		 var arr = {
+		       app: 'actions',
+		    action: 'action_works',
+		    call: 'addlove'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+ 		$.ajax({url:url,method:"POST",data:{albumid:albumid},dataType:"json",success:function(result){
+		 		         	
+                   after(result); 
+                        
+			} });
+  
+ }
+  function dellove(albumid,after){
+		 var arr = {
+		       app: 'actions',
+		    action: 'action_works',
+		    call: 'dellove'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+ 		$.ajax({url:url,method:"POST",data:{albumid:albumid},dataType:"json",success:function(result){
+		 		         	
+                   after(result); 
+                        
+			} });
+  
+ }
+
+ function addruwei(albumid,after){
+ 
+		 var arr = {
+		    app: 'actions',
+		    action: 'action_admin',
+		    call: 'addruwei'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+
+ 		$.ajax({url:url,method:"POST",data:{albumid:albumid},dataType:"json",success:function(result){
+		 		 after(result); 
+		} })
+
+}
+
+  function delwork(albumid,after){
+		 var arr = {
+		       app: 'actions',
+		    action: 'action_works',
+		    call: 'delwork'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+ 		$.ajax({url:url,method:"POST",data:{albumid:albumid},dataType:"json",success:function(result){
+		 		         	
+                   after(result); 
+                        
+			} });
+  
+ }
+ 
+
+ function addcomment(albumid,content,after){
+		 var arr = {
+		      app: 'actions',
+		    action: 'action_works',
+		    call:'addcomment'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+ 		$.ajax({url:url,method:"POST",data:{albumid:albumid,content:content},dataType:"json",success:function(result){
+		 		         	
+                   after(result); 
+                        
+			} });
+  
+ }
+
+
+  function delcomment(commentid,after){
+		 var arr = {
+		      app: 'actions',
+		    action: 'action_works',
+		    call:'delcomment'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+ 		$.ajax({url:url,method:"POST",data:{commentid:commentid},dataType:"json",success:function(result){
+		 		         	
+                   after(result); 
+                        
+			} });
+  
+ }
+
+     function delcommentauthor(commentid,albumid,after){
+		 var arr = {
+		      app: 'actions',
+		    action: 'action_works',
+		    call:'delcomment_author'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+ 		$.ajax({url:url,method:"POST",data:{commentid:commentid,albumid:albumid},dataType:"json",success:function(result){
+		 		         	
+                   after(result); 
+                        
+			} });
+  
+ }
+
+
+function addrecomment(reid,albumid,content,after){
+	 	 
+		var arr = {
+		    app: 'actions',
+		    action: 'action_works',
+		    call:'addcomment'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+ 	$.ajax({url:url,method:"POST",data:{albumid:albumid,content:content,reid:reid},dataType:"json",success:function(result){
+		 	 after(result); 
+			 }
+		});
+ 
+} 
+
+
+
+function addcommentlove(commentid,after){
+	 	 
+		var arr = {
+		    app: 'actions',
+		    action: 'action_works',
+		    call:'addcommentlove'
+
+		  }
+ 		var url=arrToUrl("/",arr);
+ 	$.ajax({url:url,method:"POST",data:{commentid:commentid},dataType:"json",success:function(result){
+		 	 after(result); 
+			 }
+		});
+ 
+} 

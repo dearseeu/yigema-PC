@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul{
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    
+   .hide{
+      display: none;
+    } 
+    
+    /* .active{
+      display: block;
+    } 
+     .show:hover{
+      width:549px;
+      
+    }
+    .show{
+      width: 549px; 
+      transform:width;
+      transition: all 2s;
+    } */
+  </style>
+</head>
+<body>
+  <ul class="container">
+    <li>
+      <img src="img/1.jpg" alt="" data-t="change" data-f="img/1.jpg" data-s="img/1.1.jpg">
+      <img src="img/1.1.jpg" alt="" class="hide">
+    </li>
+     <li>
+      <img src="img/2.jpg" alt="" data-t="change" data-f="img/2.jpg" data-s="img/2.2.jpg">
+      <img src="img/2.2.jpg" alt="" class="hide">
+    </li>
+   <!-- <li>
+    <li>
+      <img src="img/3.jpg" alt="" data-t="change" data-f="img/3.jpg" data-s="img/3.3.jpg">
+      <img src="img/3.3.jpg" alt="">
+    </li>
+      <img src="img/4.jpg" alt="" data-t="change" data-f="img/4.jpg" data-s="img/4.4.jpg">
+      <img src="img/4.4.jpg" alt="">
+    </li>
+    <li>
+      <img src="img/5.jpg" alt="" data-t="change" data-f="img/5.jpg" data-s="img/5.5.jpg">
+      <img src="img/5.5.jpg" alt="">
+    </li> -->
+  </ul>
+  <script src="js/jquery-3.2.1.js"></script>
+  <script>
+    $(".container").on("mouseover","li",function(){
+      // console.log(111)
+      // if($(this).parent().siblings().)
+      $(this).addClass("hide")
+      // $(this).first().addClass("hide").next().removeClass("hide");
+      // var a=$("$(this):first").attr("data-f")
+      // console.log(a)
+      // if($(this))
+    })
+    // $("[data-t=change]").hover(function(){
+    //   var s=$(this).attr("data-s")
+    //   $(this).attr("src",s)
+    // },function(){
+    //   var f=$(this).attr("data-f")
+    //   $(this).attr("src",f)
+    // })
+//active 在li 上 li的第一个孩子block 第二个hidden  第一张图被替换
+// $("[data-target]").mouseover(function(e){
+//       console.log(111)
+//       e.preventDefault();
+//       $(this).next().toggleClass("hide");
+//     }
+    //当前img下一个兄弟显示,其他img下一个兄弟隐藏.
+    // 鼠标进入img时,让如果有其他打开的next,先关掉,再打开当前当前next.
+    // function(){
+    //   $(this).next().addClass("hide")
+    // }
+    
+
+  </script>
+</body>
+</html>

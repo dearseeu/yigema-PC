@@ -1,0 +1,99 @@
+
+.poocgTopbar{  height:50px; background:#1B1B1B; position:relative; z-index:40; border-bottom:1px #1B1B1B solid;  }
+.poocgTopbar-wrapper{width: 1130px; position: relative; margin: 0 auto;   }
+.poocgTopbar-logo{ position: absolute; left: 0; top: 0; width: 50px; height: 45px; }
+.poocgTopbar-logo:before{ content: ''; width: 45px; height: 45px; position: absolute; left: 0; top: 0; background:url(https://cndjs.b0.upaiyun.com/poocg.com/img/Logox.png) center no-repeat; background-size: auto 18px; }
+
+.poocgTopbar-letter{float: right;color: #999;margin: 12px 5px 0 -6px;font-size: 13px;}
+
+.poocgTopbar-nav{ float: left;  }
+.poocgTopbar-nav ul.menu{ float: left; margin-left: 25px;}
+.poocgTopbar-nav ul.menu li{  display:block;padding-left:13px; padding-right:13px; text-align:center; float:left;position:relative; height:50px;    margin-left:-1px; }
+.poocgTopbar-nav ul.menu li .text{display:block; height:50px; text-align:center; color:#ddd; font-size:14px;  line-height:50px;  }
+.poocgTopbar-nav ul.menu li:hover,.poocgTopbar-nav ul.menu li.on{ background:#111; color:#fff}
+ 
+
+.poocgTopbar-nav ul.links{ position: relative; float: left; padding-left: 25px; }
+
+.poocgTopbar-nav ul.links li{ float: left; height: 50px;  margin-right: 25px; display: flex;  align-items:center;    justify-content: center;}
+.poocgTopbar-nav ul.links li img{ height: 16px; vertical-align: top;}
+.poocgTopbar-nav ul.links li a{ opacity: 0.4;}
+.poocgTopbar-nav ul.links li a:hover{ opacity: .8;}
+
+
+.poocgTopbar-login{ position: absolute; right: 0; top: 0; line-height: 50px;  }
+.poocgTopbar-login a{ color:#ccc;  font-size:12px;margin-left:10px; }
+.poocgTopbar-login a:hover{ color:#fff;    }
+
+
+
+.poocgTopbar-info{ float: right; margin-top: 5px; }
+.poocgTopbar-info__iconbtn{ float: right; display: block; margin-top: 12px; height: 20px;   margin-right: 20px;  color:#ccc}
+.poocgTopbar-info__iconbtn img{  height: 20px; }
+.poocgTopbar-info__iconbtn:hover{  opacity: 1; color:#fff}
+
+.poocgTopbar-info__msg{ float: right; margin-right: 15px;margin-top: 13px; color:#ccc; line-height: 18px;}
+.poocgTopbar-info__msg .badge{ vertical-align: top; margin-left: 3px;}
+ 
+.poocgTopbar-info-menu{ float: right; position: relative; }
+.poocgTopbar-info-menu__dropdown{ width: 45px; height: 45px; border-radius: 100%; display: flex;   align-items:center;    justify-content: center;}
+.poocgTopbar-info-menu__dropdown img{ border-radius: 100%;}
+
+.poocgTopbar-info-menu__navbar{
+  width: 120px;
+  top:100%;
+  right:-40px;
+  margin-top:-1px;
+  z-index:40;
+  visibility:hidden;
+  opacity:0;
+  outline:0;
+  position:absolute;
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:2px;
+  box-shadow:0 3px 6px rgba(0,0,0,.1);
+  background-color:#fff;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+
+
+  }
+
+.poocgTopbar-info-menu__navbar:after{ 
+  content:"";
+  position:absolute;
+  top:-6px;
+  right:50px;
+  width:0;
+  height:0;
+  font-size:0;
+  border-bottom:9px solid #FFF;
+  border-left:9px solid transparent;
+  border-right:9px solid transparent;
+  margin:0 0 0 -8px;
+}
+
+  
+ 
+.poocgTopbar-info-menu.m-open .poocgTopbar-info-menu__navbar
+{
+  -webkit-animation:dropdown .2s;
+  animation:dropdown .2s;
+  visibility:visible;
+  opacity:1;
+}
+ 
+.sixinfixed{ z-index: 10; position:fixed; top:55px;right: 0px; left:0; }
+.menu_msgtipbox{ position: absolute;right: 0; top: 0;  box-shadow: 0 3px 6px rgba(0,0,0,.1); background: #fff;  padding: 10px; width: 190px; }
+.menu_msgtipbox .hdpic{ width: 30px; height: 30px; border-radius: 100px; float: left; margin-right: 10px; margin-top: 3px; }
+.menu_msgtipbox .mp1{ font-size: 12px; font-weight: bold;   line-height: 15px; padding-bottom: 3px; width: 95px; }
+.menu_msgtipbox .mp2{ font-size: 12px; color: #006699; font-weight: normal; }
+.menu_msgtipbox .mt1,.menu_msgtipbox .mt2{ font-size: 12px;  position: absolute; right: 10px; top: 10px; color: #999; }
+.menu_msgtipbox .mt2{ top: 28px; }
+
+
+
+.poocgTopbar-info-menu__navbar-item{ cursor:pointer;  display:block;  line-height:34px; color:#333; border:0; background:0 0; text-align:center;  width:100%; box-sizing:border-box;  overflow:hidden;  text-overflow:ellipsis; white-space:nowrap; padding:0 16px; }
+.poocgTopbar-info-menu__navbar-item:hover{ text-decoration:none; background:#f7f8f9;}
+.poocgTopbar-info-menu__navbar-item.last_item{ border-top: 1px #f0f0f0 solid;}

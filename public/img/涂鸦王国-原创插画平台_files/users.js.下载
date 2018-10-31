@@ -1,0 +1,92 @@
+function sixinread(token){
+  var arr = {
+		    app: 'actions',
+		    action: 'action_user',
+		    call:"sixinread"
+		  }
+  var url=arrToUrl("/",arr);
+$.ajax({url:url,method:"POST",data:{sixintoken:token},dataType:"json",success:function(result){
+		 		if (result.status==0) {
+			$("#sixinfixed").hide();
+		}else{
+			console.log(result);
+
+			$("#sixinfixed_hdpic").attr('src', result.result.faceurl);
+			$("#sixinfixed_name").html(result.result.username);
+
+		}
+			}
+		});
+ 
+}
+
+
+/*私信发送*/
+ function repost_post(targetid,types,content,after){
+ 
+		var arr = {
+		    app: 'actions',
+		    action: 'action_report',
+		    call: 'add',
+		  }
+		var url=arrToUrl("/",arr);	
+		//console.log(url)	
+
+		$.ajax({url:url,method:"POST",data:{targetid:targetid,types:types,content:content
+		},dataType:"json",success:function(result){		 		         	
+              after(result); 
+ 			} });	  
+     
+		 
+}  
+
+/*私信发送*/
+function addsixin_post(touserid,content,ticket,randstr,after){
+  
+	var arr = {
+	    app: 'actions',
+		 action: 'action_user',
+	    call: 'addsixin',
+	  }
+	var url=arrToUrl("/",arr);
+   
+	 $.ajax({url:url,method:"POST",data:{touserid:touserid,content:content,ticket:ticket,randstr:randstr},dataType:"json",success:function(result){		 		         	
+              after(result); 
+ 	 } });
+			 		
+
+}
+
+ 
+function dofollow(touserid,after){
+		 var arr = {
+		    app: 'actions',
+		    action: 'action_user',
+		    call:'addfollow' 
+	 
+		  }
+ 		 var url=arrToUrl("/",arr); 
+ 		$.ajax({url:url,method:"POST",data:{touserid:touserid},dataType:"json",success:function(result){		 		         	
+              after(result); 
+ 			} });
+			 			  
+					 	
+}
+ 
+ /*取消关注*/
+ function delfollow(touserid,after){
+ 
+   var arr = {
+		     app: 'actions',
+		    action: 'action_user',
+		    call:'delfollow' 
+		 	 }
+
+    var url=arrToUrl("/",arr); 
+ 		$.ajax({url:url,method:"POST",data:{touserid:touserid},dataType:"json",success:function(result){		 		         	
+              after(result); 
+ 			} });
+ 
+}
+
+

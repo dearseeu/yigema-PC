@@ -1,0 +1,80 @@
+function todel(msg,url){
+
+	layer.confirm(msg, {
+		title: '提示',
+		btn: ['确定','取消'] //按钮
+	}, function(){
+		window.location=url;
+
+	}, function(){
+
+	});
+ 
+} 
+
+function todo(msg,url){
+
+	return todel(msg,url)
+ 
+
+}
+ 
+
+function arrToUrl(php,arr) {
+
+// var sroot="https://www.gracg.com"
+  
+  var app, action, str;
+   str=''
+  for (var o in arr) {
+    if (o == "app") {
+      app = arr['app'];
+    } else if (o == "action") {
+      action = arr['action'];
+    } else {
+      str += o + "/" + arr[o] + "/";
+    }
+  }
+
+if (php=="/"){
+ 	var url =  sroot+ php + app + "/" + action + "/" + str;
+}else{
+	 var url =  sroot+ php+ "/" + app + "/" + action + "/" + str;
+}
+ 
+
+  return url;
+}
+
+
+ function loadUrl(url,div){
+  	$.ajax({
+				url: url,
+				success: function (data) {
+					$("#"+div).html(data);
+				},
+				cache: true
+			});
+}
+
+function showMsg(str){
+        layer.msg(str)
+			 
+}
+
+
+
+var opensd;
+function openDiv(title,url){ 
+	console.log(url)
+	$.ajax({ url:url, success: function(data){
+      	opensd = layer.open({
+		  type: 1,
+		  title:title,
+		  area: ['450px', 'auto'], //宽高
+		  content: '<div style="padding:30px">'+data+'</div>'
+		});
+      }
+  	});
+     
+}
